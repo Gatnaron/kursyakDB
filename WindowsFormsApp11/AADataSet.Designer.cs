@@ -36,6 +36,8 @@ namespace WindowsFormsApp11 {
         
         private StatementDataTable tableStatement;
         
+        private AutorizationDataTable tableAutorization;
+        
         private global::System.Data.DataRelation relationFK_Advertiser_City;
         
         private global::System.Data.DataRelation relationFK_Publisher_City;
@@ -47,6 +49,10 @@ namespace WindowsFormsApp11 {
         private global::System.Data.DataRelation relationFK_Statement_Advertiser;
         
         private global::System.Data.DataRelation relationFK_Statement_Publisher;
+        
+        private global::System.Data.DataRelation relationFK_Advertiser_Autorization;
+        
+        private global::System.Data.DataRelation relationFK_Publisher_Autorization;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -93,6 +99,9 @@ namespace WindowsFormsApp11 {
                 }
                 if ((ds.Tables["Statement"] != null)) {
                     base.Tables.Add(new StatementDataTable(ds.Tables["Statement"]));
+                }
+                if ((ds.Tables["Autorization"] != null)) {
+                    base.Tables.Add(new AutorizationDataTable(ds.Tables["Autorization"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -169,6 +178,16 @@ namespace WindowsFormsApp11 {
         public StatementDataTable Statement {
             get {
                 return this.tableStatement;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public AutorizationDataTable Autorization {
+            get {
+                return this.tableAutorization;
             }
         }
         
@@ -257,6 +276,9 @@ namespace WindowsFormsApp11 {
                 if ((ds.Tables["Statement"] != null)) {
                     base.Tables.Add(new StatementDataTable(ds.Tables["Statement"]));
                 }
+                if ((ds.Tables["Autorization"] != null)) {
+                    base.Tables.Add(new AutorizationDataTable(ds.Tables["Autorization"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -326,12 +348,20 @@ namespace WindowsFormsApp11 {
                     this.tableStatement.InitVars();
                 }
             }
+            this.tableAutorization = ((AutorizationDataTable)(base.Tables["Autorization"]));
+            if ((initTable == true)) {
+                if ((this.tableAutorization != null)) {
+                    this.tableAutorization.InitVars();
+                }
+            }
             this.relationFK_Advertiser_City = this.Relations["FK_Advertiser_City"];
             this.relationFK_Publisher_City = this.Relations["FK_Publisher_City"];
             this.relationFK_Publisher_Form = this.Relations["FK_Publisher_Form"];
             this.relationFK_Publisher_Service = this.Relations["FK_Publisher_Service"];
             this.relationFK_Statement_Advertiser = this.Relations["FK_Statement_Advertiser"];
             this.relationFK_Statement_Publisher = this.Relations["FK_Statement_Publisher"];
+            this.relationFK_Advertiser_Autorization = this.Relations["FK_Advertiser_Autorization"];
+            this.relationFK_Publisher_Autorization = this.Relations["FK_Publisher_Autorization"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -354,6 +384,8 @@ namespace WindowsFormsApp11 {
             base.Tables.Add(this.tableService);
             this.tableStatement = new StatementDataTable();
             base.Tables.Add(this.tableStatement);
+            this.tableAutorization = new AutorizationDataTable();
+            base.Tables.Add(this.tableAutorization);
             this.relationFK_Advertiser_City = new global::System.Data.DataRelation("FK_Advertiser_City", new global::System.Data.DataColumn[] {
                         this.tableCity.ID_CityColumn}, new global::System.Data.DataColumn[] {
                         this.tableAdvertiser.ID_CityColumn}, false);
@@ -378,6 +410,14 @@ namespace WindowsFormsApp11 {
                         this.tablePublisher.ID_PublisherColumn}, new global::System.Data.DataColumn[] {
                         this.tableStatement.ID_PublisherColumn}, false);
             this.Relations.Add(this.relationFK_Statement_Publisher);
+            this.relationFK_Advertiser_Autorization = new global::System.Data.DataRelation("FK_Advertiser_Autorization", new global::System.Data.DataColumn[] {
+                        this.tableAutorization.ID_AutorizationColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAdvertiser.ID_AutorizationColumn}, false);
+            this.Relations.Add(this.relationFK_Advertiser_Autorization);
+            this.relationFK_Publisher_Autorization = new global::System.Data.DataRelation("FK_Publisher_Autorization", new global::System.Data.DataColumn[] {
+                        this.tableAutorization.ID_AutorizationColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePublisher.ID_AutorizationColumn}, false);
+            this.Relations.Add(this.relationFK_Publisher_Autorization);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -413,6 +453,12 @@ namespace WindowsFormsApp11 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeStatement() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeAutorization() {
             return false;
         }
         
@@ -489,6 +535,9 @@ namespace WindowsFormsApp11 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void StatementRowChangeEventHandler(object sender, StatementRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void AutorizationRowChangeEventHandler(object sender, AutorizationRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -507,6 +556,8 @@ namespace WindowsFormsApp11 {
             private global::System.Data.DataColumn columnPatronymic;
             
             private global::System.Data.DataColumn columnID_City;
+            
+            private global::System.Data.DataColumn columnID_Autorization;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -591,6 +642,14 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_AutorizationColumn {
+                get {
+                    return this.columnID_Autorization;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -626,7 +685,7 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AdvertiserRow AddAdvertiserRow(string Title, string Surname, string Name, string Patronymic, CityRow parentCityRowByFK_Advertiser_City) {
+            public AdvertiserRow AddAdvertiserRow(string Title, string Surname, string Name, string Patronymic, CityRow parentCityRowByFK_Advertiser_City, AutorizationRow parentAutorizationRowByFK_Advertiser_Autorization) {
                 AdvertiserRow rowAdvertiserRow = ((AdvertiserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -634,9 +693,13 @@ namespace WindowsFormsApp11 {
                         Surname,
                         Name,
                         Patronymic,
+                        null,
                         null};
                 if ((parentCityRowByFK_Advertiser_City != null)) {
                     columnValuesArray[5] = parentCityRowByFK_Advertiser_City[0];
+                }
+                if ((parentAutorizationRowByFK_Advertiser_Autorization != null)) {
+                    columnValuesArray[6] = parentAutorizationRowByFK_Advertiser_Autorization[0];
                 }
                 rowAdvertiserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAdvertiserRow);
@@ -673,6 +736,7 @@ namespace WindowsFormsApp11 {
                 this.columnName = base.Columns["Name"];
                 this.columnPatronymic = base.Columns["Patronymic"];
                 this.columnID_City = base.Columns["ID_City"];
+                this.columnID_Autorization = base.Columns["ID_Autorization"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -690,6 +754,8 @@ namespace WindowsFormsApp11 {
                 base.Columns.Add(this.columnPatronymic);
                 this.columnID_City = new global::System.Data.DataColumn("ID_City", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_City);
+                this.columnID_Autorization = new global::System.Data.DataColumn("ID_Autorization", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Autorization);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Advertiser}, true));
                 this.columnID_Advertiser.AutoIncrement = true;
@@ -1400,6 +1466,8 @@ namespace WindowsFormsApp11 {
             
             private global::System.Data.DataColumn columnID_Service;
             
+            private global::System.Data.DataColumn columnID_Autorization;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PublisherDataTable() {
@@ -1475,6 +1543,14 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_AutorizationColumn {
+                get {
+                    return this.columnID_Autorization;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1510,11 +1586,12 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PublisherRow AddPublisherRow(string Title, CityRow parentCityRowByFK_Publisher_City, FormRow parentFormRowByFK_Publisher_Form, ServiceRow parentServiceRowByFK_Publisher_Service) {
+            public PublisherRow AddPublisherRow(string Title, CityRow parentCityRowByFK_Publisher_City, FormRow parentFormRowByFK_Publisher_Form, ServiceRow parentServiceRowByFK_Publisher_Service, AutorizationRow parentAutorizationRowByFK_Publisher_Autorization) {
                 PublisherRow rowPublisherRow = ((PublisherRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
+                        null,
                         null,
                         null,
                         null};
@@ -1526,6 +1603,9 @@ namespace WindowsFormsApp11 {
                 }
                 if ((parentServiceRowByFK_Publisher_Service != null)) {
                     columnValuesArray[4] = parentServiceRowByFK_Publisher_Service[0];
+                }
+                if ((parentAutorizationRowByFK_Publisher_Autorization != null)) {
+                    columnValuesArray[5] = parentAutorizationRowByFK_Publisher_Autorization[0];
                 }
                 rowPublisherRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPublisherRow);
@@ -1561,6 +1641,7 @@ namespace WindowsFormsApp11 {
                 this.columnID_City = base.Columns["ID_City"];
                 this.columnID_Form = base.Columns["ID_Form"];
                 this.columnID_Service = base.Columns["ID_Service"];
+                this.columnID_Autorization = base.Columns["ID_Autorization"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1576,6 +1657,8 @@ namespace WindowsFormsApp11 {
                 base.Columns.Add(this.columnID_Form);
                 this.columnID_Service = new global::System.Data.DataColumn("ID_Service", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_Service);
+                this.columnID_Autorization = new global::System.Data.DataColumn("ID_Autorization", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Autorization);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Publisher}, true));
                 this.columnID_Publisher.AutoIncrement = true;
@@ -2008,6 +2091,8 @@ namespace WindowsFormsApp11 {
             
             private global::System.Data.DataColumn columnID_Publisher;
             
+            private global::System.Data.DataColumn columnСomment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StatementDataTable() {
@@ -2083,6 +2168,14 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn СommentColumn {
+                get {
+                    return this.columnСomment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2118,14 +2211,15 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StatementRow AddStatementRow(System.DateTime Request, System.DateTime Release, AdvertiserRow parentAdvertiserRowByFK_Statement_Advertiser, PublisherRow parentPublisherRowByFK_Statement_Publisher) {
+            public StatementRow AddStatementRow(System.DateTime Request, System.DateTime Release, AdvertiserRow parentAdvertiserRowByFK_Statement_Advertiser, PublisherRow parentPublisherRowByFK_Statement_Publisher, string Сomment) {
                 StatementRow rowStatementRow = ((StatementRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Request,
                         Release,
                         null,
-                        null};
+                        null,
+                        Сomment};
                 if ((parentAdvertiserRowByFK_Statement_Advertiser != null)) {
                     columnValuesArray[3] = parentAdvertiserRowByFK_Statement_Advertiser[0];
                 }
@@ -2166,6 +2260,7 @@ namespace WindowsFormsApp11 {
                 this.columnRelease = base.Columns["Release"];
                 this.columnID_Advertiser = base.Columns["ID_Advertiser"];
                 this.columnID_Publisher = base.Columns["ID_Publisher"];
+                this.columnСomment = base.Columns["Сomment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2181,6 +2276,8 @@ namespace WindowsFormsApp11 {
                 base.Columns.Add(this.columnID_Advertiser);
                 this.columnID_Publisher = new global::System.Data.DataColumn("ID_Publisher", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_Publisher);
+                this.columnСomment = new global::System.Data.DataColumn("Сomment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСomment);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2191,6 +2288,7 @@ namespace WindowsFormsApp11 {
                 this.columnID.Unique = true;
                 this.columnID_Advertiser.AllowDBNull = false;
                 this.columnID_Publisher.AllowDBNull = false;
+                this.columnСomment.MaxLength = 150;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2277,6 +2375,314 @@ namespace WindowsFormsApp11 {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "StatementDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class AutorizationDataTable : global::System.Data.TypedTableBase<AutorizationRow> {
+            
+            private global::System.Data.DataColumn columnID_Autorization;
+            
+            private global::System.Data.DataColumn columnlogin;
+            
+            private global::System.Data.DataColumn columnpassword;
+            
+            private global::System.Data.DataColumn columnRole;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationDataTable() {
+                this.TableName = "Autorization";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal AutorizationDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected AutorizationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_AutorizationColumn {
+                get {
+                    return this.columnID_Autorization;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn loginColumn {
+                get {
+                    return this.columnlogin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn passwordColumn {
+                get {
+                    return this.columnpassword;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn RoleColumn {
+                get {
+                    return this.columnRole;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow this[int index] {
+                get {
+                    return ((AutorizationRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AutorizationRowChangeEventHandler AutorizationRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AutorizationRowChangeEventHandler AutorizationRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AutorizationRowChangeEventHandler AutorizationRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AutorizationRowChangeEventHandler AutorizationRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddAutorizationRow(AutorizationRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow AddAutorizationRow(string login, string password, bool Role) {
+                AutorizationRow rowAutorizationRow = ((AutorizationRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        login,
+                        password,
+                        Role};
+                rowAutorizationRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAutorizationRow);
+                return rowAutorizationRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow FindByID_Autorization(int ID_Autorization) {
+                return ((AutorizationRow)(this.Rows.Find(new object[] {
+                            ID_Autorization})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                AutorizationDataTable cln = ((AutorizationDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new AutorizationDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnID_Autorization = base.Columns["ID_Autorization"];
+                this.columnlogin = base.Columns["login"];
+                this.columnpassword = base.Columns["password"];
+                this.columnRole = base.Columns["Role"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnID_Autorization = new global::System.Data.DataColumn("ID_Autorization", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Autorization);
+                this.columnlogin = new global::System.Data.DataColumn("login", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlogin);
+                this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpassword);
+                this.columnRole = new global::System.Data.DataColumn("Role", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRole);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_Autorization}, true));
+                this.columnID_Autorization.AutoIncrement = true;
+                this.columnID_Autorization.AutoIncrementSeed = -1;
+                this.columnID_Autorization.AutoIncrementStep = -1;
+                this.columnID_Autorization.AllowDBNull = false;
+                this.columnID_Autorization.ReadOnly = true;
+                this.columnID_Autorization.Unique = true;
+                this.columnlogin.AllowDBNull = false;
+                this.columnlogin.MaxLength = 20;
+                this.columnpassword.AllowDBNull = false;
+                this.columnpassword.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow NewAutorizationRow() {
+                return ((AutorizationRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new AutorizationRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(AutorizationRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.AutorizationRowChanged != null)) {
+                    this.AutorizationRowChanged(this, new AutorizationRowChangeEvent(((AutorizationRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.AutorizationRowChanging != null)) {
+                    this.AutorizationRowChanging(this, new AutorizationRowChangeEvent(((AutorizationRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.AutorizationRowDeleted != null)) {
+                    this.AutorizationRowDeleted(this, new AutorizationRowChangeEvent(((AutorizationRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.AutorizationRowDeleting != null)) {
+                    this.AutorizationRowDeleting(this, new AutorizationRowChangeEvent(((AutorizationRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveAutorizationRow(AutorizationRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AADataSet ds = new AADataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "AutorizationDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2419,12 +2825,39 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Autorization {
+                get {
+                    try {
+                        return ((int)(this[this.tableAdvertiser.ID_AutorizationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Autorization\' в таблице \'Advertiser\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAdvertiser.ID_AutorizationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CityRow CityRow {
                 get {
                     return ((CityRow)(this.GetParentRow(this.Table.ParentRelations["FK_Advertiser_City"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Advertiser_City"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow AutorizationRow {
+                get {
+                    return ((AutorizationRow)(this.GetParentRow(this.Table.ParentRelations["FK_Advertiser_Autorization"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Advertiser_Autorization"]);
                 }
             }
             
@@ -2474,6 +2907,18 @@ namespace WindowsFormsApp11 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPatronymicNull() {
                 this[this.tableAdvertiser.PatronymicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsID_AutorizationNull() {
+                return this.IsNull(this.tableAdvertiser.ID_AutorizationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetID_AutorizationNull() {
+                this[this.tableAdvertiser.ID_AutorizationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2705,6 +3150,22 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Autorization {
+                get {
+                    try {
+                        return ((int)(this[this.tablePublisher.ID_AutorizationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Autorization\' в таблице \'Publisher\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePublisher.ID_AutorizationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CityRow CityRow {
                 get {
                     return ((CityRow)(this.GetParentRow(this.Table.ParentRelations["FK_Publisher_City"])));
@@ -2738,6 +3199,17 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow AutorizationRow {
+                get {
+                    return ((AutorizationRow)(this.GetParentRow(this.Table.ParentRelations["FK_Publisher_Autorization"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Publisher_Autorization"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTitleNull() {
                 return this.IsNull(this.tablePublisher.TitleColumn);
             }
@@ -2746,6 +3218,18 @@ namespace WindowsFormsApp11 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTitleNull() {
                 this[this.tablePublisher.TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsID_AutorizationNull() {
+                return this.IsNull(this.tablePublisher.ID_AutorizationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetID_AutorizationNull() {
+                this[this.tablePublisher.ID_AutorizationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2906,6 +3390,22 @@ namespace WindowsFormsApp11 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Сomment {
+                get {
+                    try {
+                        return ((string)(this[this.tableStatement.СommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Сomment\' в таблице \'Statement\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStatement.СommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public AdvertiserRow AdvertiserRow {
                 get {
                     return ((AdvertiserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Statement_Advertiser"])));
@@ -2948,6 +3448,116 @@ namespace WindowsFormsApp11 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetReleaseNull() {
                 this[this.tableStatement.ReleaseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsСommentNull() {
+                return this.IsNull(this.tableStatement.СommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetСommentNull() {
+                this[this.tableStatement.СommentColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class AutorizationRow : global::System.Data.DataRow {
+            
+            private AutorizationDataTable tableAutorization;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal AutorizationRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAutorization = ((AutorizationDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Autorization {
+                get {
+                    return ((int)(this[this.tableAutorization.ID_AutorizationColumn]));
+                }
+                set {
+                    this[this.tableAutorization.ID_AutorizationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string login {
+                get {
+                    return ((string)(this[this.tableAutorization.loginColumn]));
+                }
+                set {
+                    this[this.tableAutorization.loginColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string password {
+                get {
+                    return ((string)(this[this.tableAutorization.passwordColumn]));
+                }
+                set {
+                    this[this.tableAutorization.passwordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Role {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAutorization.RoleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Role\' в таблице \'Autorization\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAutorization.RoleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRoleNull() {
+                return this.IsNull(this.tableAutorization.RoleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRoleNull() {
+                this[this.tableAutorization.RoleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AdvertiserRow[] GetAdvertiserRows() {
+                if ((this.Table.ChildRelations["FK_Advertiser_Autorization"] == null)) {
+                    return new AdvertiserRow[0];
+                }
+                else {
+                    return ((AdvertiserRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Advertiser_Autorization"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public PublisherRow[] GetPublisherRows() {
+                if ((this.Table.ChildRelations["FK_Publisher_Autorization"] == null)) {
+                    return new PublisherRow[0];
+                }
+                else {
+                    return ((PublisherRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Publisher_Autorization"])));
+                }
             }
         }
         
@@ -3154,6 +3764,40 @@ namespace WindowsFormsApp11 {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class AutorizationRowChangeEvent : global::System.EventArgs {
+            
+            private AutorizationRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRowChangeEvent(AutorizationRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AutorizationRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace WindowsFormsApp11.AADataSetTableAdapters {
@@ -3286,10 +3930,11 @@ namespace WindowsFormsApp11.AADataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Patronymic", "Patronymic");
             tableMapping.ColumnMappings.Add("ID_City", "ID_City");
+            tableMapping.ColumnMappings.Add("ID_Autorization", "ID_Autorization");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Advertiser] WHERE (([ID_Advertiser] = @Original_ID_Advertiser) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Surname = 1 AND [Surname] IS NULL) OR ([Surname] = @Original_Surname)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([ID_City] = @Original_ID_City))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Advertiser] WHERE (([ID_Advertiser] = @Original_ID_Advertiser) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Surname = 1 AND [Surname] IS NULL) OR ([Surname] = @Original_Surname)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([ID_City] = @Original_ID_City) AND ((@IsNull_ID_Autorization = 1 AND [ID_Autorization] IS NULL) OR ([ID_Autorization] = @Original_ID_Autorization)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Advertiser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3301,26 +3946,30 @@ namespace WindowsFormsApp11.AADataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Patronymic", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Advertiser] ([Title], [Surname], [Name], [Patronymic], [ID_City]) VALUES (@Title, @Surname, @Name, @Patronymic, @ID_City);
-SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser WHERE (ID_Advertiser = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Advertiser] ([Title], [Surname], [Name], [Patronymic], [ID_City], [ID_Autorization]) VALUES (@Title, @Surname, @Name, @Patronymic, @ID_City, @ID_Autorization);
+SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City, ID_Autorization FROM Advertiser WHERE (ID_Advertiser = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Advertiser] SET [Title] = @Title, [Surname] = @Surname, [Name] = @Name, [Patronymic] = @Patronymic, [ID_City] = @ID_City WHERE (([ID_Advertiser] = @Original_ID_Advertiser) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Surname = 1 AND [Surname] IS NULL) OR ([Surname] = @Original_Surname)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([ID_City] = @Original_ID_City));
-SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser WHERE (ID_Advertiser = @ID_Advertiser)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Advertiser] SET [Title] = @Title, [Surname] = @Surname, [Name] = @Name, [Patronymic] = @Patronymic, [ID_City] = @ID_City, [ID_Autorization] = @ID_Autorization WHERE (([ID_Advertiser] = @Original_ID_Advertiser) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_Surname = 1 AND [Surname] IS NULL) OR ([Surname] = @Original_Surname)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([ID_City] = @Original_ID_City) AND ((@IsNull_ID_Autorization = 1 AND [ID_Autorization] IS NULL) OR ([ID_Autorization] = @Original_ID_Autorization)));
+SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City, ID_Autorization FROM Advertiser WHERE (ID_Advertiser = @ID_Advertiser)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Advertiser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3331,6 +3980,8 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Patronymic", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Advertiser", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -3347,8 +3998,8 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM dbo.Advertis" +
-                "er";
+            this._commandCollection[0].CommandText = "SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City, ID_Autorization " +
+                "FROM dbo.Advertiser";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3409,7 +4060,7 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Advertiser, string Original_Title, string Original_Surname, string Original_Name, string Original_Patronymic, int Original_ID_City) {
+        public virtual int Delete(int Original_ID_Advertiser, string Original_Title, string Original_Surname, string Original_Name, string Original_Patronymic, int Original_ID_City, global::System.Nullable<int> Original_ID_Autorization) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Advertiser));
             if ((Original_Title == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -3444,6 +4095,14 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Patronymic));
             }
             this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_ID_City));
+            if ((Original_ID_Autorization.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_ID_Autorization.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3464,7 +4123,7 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, string Surname, string Name, string Patronymic, int ID_City) {
+        public virtual int Insert(string Title, string Surname, string Name, string Patronymic, int ID_City, global::System.Nullable<int> ID_Autorization) {
             if ((Title == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3490,6 +4149,12 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Patronymic));
             }
             this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ID_City));
+            if ((ID_Autorization.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ID_Autorization.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3510,7 +4175,7 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, string Surname, string Name, string Patronymic, int ID_City, int Original_ID_Advertiser, string Original_Title, string Original_Surname, string Original_Name, string Original_Patronymic, int Original_ID_City, int ID_Advertiser) {
+        public virtual int Update(string Title, string Surname, string Name, string Patronymic, int ID_City, global::System.Nullable<int> ID_Autorization, int Original_ID_Advertiser, string Original_Title, string Original_Surname, string Original_Name, string Original_Patronymic, int Original_ID_City, global::System.Nullable<int> Original_ID_Autorization, int ID_Advertiser) {
             if ((Title == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3536,41 +4201,55 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Patronymic));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ID_City));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID_Advertiser));
-            if ((Original_Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((ID_Autorization.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ID_Autorization.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Title));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_Advertiser));
+            if ((Original_Title == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Title));
             }
             if ((Original_Surname == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Surname));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Surname));
             }
             if ((Original_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Name));
             }
             if ((Original_Patronymic == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Patronymic));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Patronymic));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ID_City));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(ID_Advertiser));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_ID_City));
+            if ((Original_ID_Autorization.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_ID_Autorization.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(ID_Advertiser));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3591,8 +4270,8 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, string Surname, string Name, string Patronymic, int ID_City, int Original_ID_Advertiser, string Original_Title, string Original_Surname, string Original_Name, string Original_Patronymic, int Original_ID_City) {
-            return this.Update(Title, Surname, Name, Patronymic, ID_City, Original_ID_Advertiser, Original_Title, Original_Surname, Original_Name, Original_Patronymic, Original_ID_City, Original_ID_Advertiser);
+        public virtual int Update(string Title, string Surname, string Name, string Patronymic, int ID_City, global::System.Nullable<int> ID_Autorization, int Original_ID_Advertiser, string Original_Title, string Original_Surname, string Original_Name, string Original_Patronymic, int Original_ID_City, global::System.Nullable<int> Original_ID_Autorization) {
+            return this.Update(Title, Surname, Name, Patronymic, ID_City, ID_Autorization, Original_ID_Advertiser, Original_Title, Original_Surname, Original_Name, Original_Patronymic, Original_ID_City, Original_ID_Autorization, Original_ID_Advertiser);
         }
     }
     
@@ -4370,10 +5049,11 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
             tableMapping.ColumnMappings.Add("ID_City", "ID_City");
             tableMapping.ColumnMappings.Add("ID_Form", "ID_Form");
             tableMapping.ColumnMappings.Add("ID_Service", "ID_Service");
+            tableMapping.ColumnMappings.Add("ID_Autorization", "ID_Autorization");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Publisher] WHERE (([ID_Publisher] = @Original_ID_Publisher) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ([ID_City] = @Original_ID_City) AND ([ID_Form] = @Original_ID_Form) AND ([ID_Service] = @Original_ID_Service))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Publisher] WHERE (([ID_Publisher] = @Original_ID_Publisher) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ([ID_City] = @Original_ID_City) AND ([ID_Form] = @Original_ID_Form) AND ([ID_Service] = @Original_ID_Service) AND ((@IsNull_ID_Autorization = 1 AND [ID_Autorization] IS NULL) OR ([ID_Autorization] = @Original_ID_Autorization)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4381,31 +5061,36 @@ SELECT ID_Advertiser, Title, Surname, Name, Patronymic, ID_City FROM Advertiser 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Form", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Service", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Service", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Publisher] ([Title], [ID_City], [ID_Form], [ID_Service]) VALUE" +
-                "S (@Title, @ID_City, @ID_Form, @ID_Service);\r\nSELECT ID_Publisher, Title, ID_Cit" +
-                "y, ID_Form, ID_Service FROM Publisher WHERE (ID_Publisher = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Publisher] ([Title], [ID_City], [ID_Form], [ID_Service], [ID_Autorization]) VALUES (@Title, @ID_City, @ID_Form, @ID_Service, @ID_Autorization);
+SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service, ID_Autorization FROM Publisher WHERE (ID_Publisher = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Form", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Service", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Publisher] SET [Title] = @Title, [ID_City] = @ID_City, [ID_Form] = @ID_Form, [ID_Service] = @ID_Service WHERE (([ID_Publisher] = @Original_ID_Publisher) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ([ID_City] = @Original_ID_City) AND ([ID_Form] = @Original_ID_Form) AND ([ID_Service] = @Original_ID_Service));
-SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (ID_Publisher = @ID_Publisher)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Publisher] SET [Title] = @Title, [ID_City] = @ID_City, [ID_Form] = @ID_Form, [ID_Service] = @ID_Service, [ID_Autorization] = @ID_Autorization WHERE (([ID_Publisher] = @Original_ID_Publisher) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ([ID_City] = @Original_ID_City) AND ([ID_Form] = @Original_ID_Form) AND ([ID_Service] = @Original_ID_Service) AND ((@IsNull_ID_Autorization = 1 AND [ID_Autorization] IS NULL) OR ([ID_Autorization] = @Original_ID_Autorization)));
+SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service, ID_Autorization FROM Publisher WHERE (ID_Publisher = @ID_Publisher)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Form", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Service", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Title", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_City", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Form", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Form", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Service", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Service", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Publisher", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -4422,7 +5107,8 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM dbo.Publisher";
+            this._commandCollection[0].CommandText = "SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service, ID_Autorization FROM db" +
+                "o.Publisher";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4483,7 +5169,7 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Publisher, string Original_Title, int Original_ID_City, int Original_ID_Form, int Original_ID_Service) {
+        public virtual int Delete(int Original_ID_Publisher, string Original_Title, int Original_ID_City, int Original_ID_Form, int Original_ID_Service, global::System.Nullable<int> Original_ID_Autorization) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Publisher));
             if ((Original_Title == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -4496,6 +5182,14 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_ID_City));
             this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ID_Form));
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ID_Service));
+            if ((Original_ID_Autorization.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_ID_Autorization.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4516,7 +5210,7 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, int ID_City, int ID_Form, int ID_Service) {
+        public virtual int Insert(string Title, int ID_City, int ID_Form, int ID_Service, global::System.Nullable<int> ID_Autorization) {
             if ((Title == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4526,6 +5220,12 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID_City));
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID_Form));
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ID_Service));
+            if ((ID_Autorization.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ID_Autorization.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4546,7 +5246,7 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, int ID_City, int ID_Form, int ID_Service, int Original_ID_Publisher, string Original_Title, int Original_ID_City, int Original_ID_Form, int Original_ID_Service, int ID_Publisher) {
+        public virtual int Update(string Title, int ID_City, int ID_Form, int ID_Service, global::System.Nullable<int> ID_Autorization, int Original_ID_Publisher, string Original_Title, int Original_ID_City, int Original_ID_Form, int Original_ID_Service, global::System.Nullable<int> Original_ID_Autorization, int ID_Publisher) {
             if ((Title == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4556,19 +5256,33 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID_City));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ID_Form));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ID_Service));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_Publisher));
-            if ((Original_Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((ID_Autorization.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ID_Autorization.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Title));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID_City));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID_Form));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID_Service));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(ID_Publisher));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID_Publisher));
+            if ((Original_Title == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Title));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID_City));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID_Form));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID_Service));
+            if ((Original_ID_Autorization.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ID_Autorization.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(ID_Publisher));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4589,8 +5303,8 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, int ID_City, int ID_Form, int ID_Service, int Original_ID_Publisher, string Original_Title, int Original_ID_City, int Original_ID_Form, int Original_ID_Service) {
-            return this.Update(Title, ID_City, ID_Form, ID_Service, Original_ID_Publisher, Original_Title, Original_ID_City, Original_ID_Form, Original_ID_Service, Original_ID_Publisher);
+        public virtual int Update(string Title, int ID_City, int ID_Form, int ID_Service, global::System.Nullable<int> ID_Autorization, int Original_ID_Publisher, string Original_Title, int Original_ID_City, int Original_ID_Form, int Original_ID_Service, global::System.Nullable<int> Original_ID_Autorization) {
+            return this.Update(Title, ID_City, ID_Form, ID_Service, ID_Autorization, Original_ID_Publisher, Original_Title, Original_ID_City, Original_ID_Form, Original_ID_Service, Original_ID_Autorization, Original_ID_Publisher);
         }
     }
     
@@ -5044,10 +5758,11 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
             tableMapping.ColumnMappings.Add("Release", "Release");
             tableMapping.ColumnMappings.Add("ID_Advertiser", "ID_Advertiser");
             tableMapping.ColumnMappings.Add("ID_Publisher", "ID_Publisher");
+            tableMapping.ColumnMappings.Add("Сomment", "Сomment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Statement] WHERE (([ID] = @Original_ID) AND ((@IsNull_Request = 1 AND [Request] IS NULL) OR ([Request] = @Original_Request)) AND ((@IsNull_Release = 1 AND [Release] IS NULL) OR ([Release] = @Original_Release)) AND ([ID_Advertiser] = @Original_ID_Advertiser) AND ([ID_Publisher] = @Original_ID_Publisher))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Statement] WHERE (([ID] = @Original_ID) AND ((@IsNull_Request = 1 AND [Request] IS NULL) OR ([Request] = @Original_Request)) AND ((@IsNull_Release = 1 AND [Release] IS NULL) OR ([Release] = @Original_Release)) AND ([ID_Advertiser] = @Original_ID_Advertiser) AND ([ID_Publisher] = @Original_ID_Publisher) AND ((@IsNull_Сomment = 1 AND [Сomment] IS NULL) OR ([Сomment] = @Original_Сomment)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Request", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Request", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5056,26 +5771,28 @@ SELECT ID_Publisher, Title, ID_City, ID_Form, ID_Service FROM Publisher WHERE (I
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Release", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Release", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Advertiser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Сomment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сomment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сomment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сomment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Statement] ([Request], [Release], [ID_Advertiser], [ID_Publish" +
-                "er]) VALUES (@Request, @Release, @ID_Advertiser, @ID_Publisher);\r\nSELECT ID, Req" +
-                "uest, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (ID = SCOPE_IDEN" +
-                "TITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Statement] ([Request], [Release], [ID_Advertiser], [ID_Publisher], [Сomment]) VALUES (@Request, @Release, @ID_Advertiser, @ID_Publisher, @Сomment);
+SELECT ID, Request, Release, ID_Advertiser, ID_Publisher, Сomment FROM Statement WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Request", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Request", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Release", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Release", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Advertiser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сomment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сomment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Statement] SET [Request] = @Request, [Release] = @Release, [ID_Advertiser] = @ID_Advertiser, [ID_Publisher] = @ID_Publisher WHERE (([ID] = @Original_ID) AND ((@IsNull_Request = 1 AND [Request] IS NULL) OR ([Request] = @Original_Request)) AND ((@IsNull_Release = 1 AND [Release] IS NULL) OR ([Release] = @Original_Release)) AND ([ID_Advertiser] = @Original_ID_Advertiser) AND ([ID_Publisher] = @Original_ID_Publisher));
-SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Statement] SET [Request] = @Request, [Release] = @Release, [ID_Advertiser] = @ID_Advertiser, [ID_Publisher] = @ID_Publisher, [Сomment] = @Сomment WHERE (([ID] = @Original_ID) AND ((@IsNull_Request = 1 AND [Request] IS NULL) OR ([Request] = @Original_Request)) AND ((@IsNull_Release = 1 AND [Release] IS NULL) OR ([Release] = @Original_Release)) AND ([ID_Advertiser] = @Original_ID_Advertiser) AND ([ID_Publisher] = @Original_ID_Publisher) AND ((@IsNull_Сomment = 1 AND [Сomment] IS NULL) OR ([Сomment] = @Original_Сomment)));
+SELECT ID, Request, Release, ID_Advertiser, ID_Publisher, Сomment FROM Statement WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Request", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Request", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Release", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Release", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Advertiser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Сomment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сomment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Request", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Request", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Request", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Request", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5083,6 +5800,8 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Release", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Release", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Advertiser", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Advertiser", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Сomment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сomment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Сomment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Сomment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5099,7 +5818,8 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM dbo.Statement";
+            this._commandCollection[0].CommandText = "SELECT ID, Request, Release, ID_Advertiser, ID_Publisher, Сomment FROM dbo.Statem" +
+                "ent";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5160,7 +5880,7 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, global::System.Nullable<global::System.DateTime> Original_Request, global::System.Nullable<global::System.DateTime> Original_Release, int Original_ID_Advertiser, int Original_ID_Publisher) {
+        public virtual int Delete(int Original_ID, global::System.Nullable<global::System.DateTime> Original_Request, global::System.Nullable<global::System.DateTime> Original_Release, int Original_ID_Advertiser, int Original_ID_Publisher, string Original_Сomment) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Request.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -5180,6 +5900,14 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
             }
             this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ID_Advertiser));
             this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ID_Publisher));
+            if ((Original_Сomment == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Сomment));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5200,7 +5928,7 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> Request, global::System.Nullable<global::System.DateTime> Release, int ID_Advertiser, int ID_Publisher) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> Request, global::System.Nullable<global::System.DateTime> Release, int ID_Advertiser, int ID_Publisher, string Сomment) {
             if ((Request.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(Request.Value));
             }
@@ -5215,6 +5943,12 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID_Advertiser));
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ID_Publisher));
+            if ((Сomment == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Сomment));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5235,7 +5969,7 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> Request, global::System.Nullable<global::System.DateTime> Release, int ID_Advertiser, int ID_Publisher, int Original_ID, global::System.Nullable<global::System.DateTime> Original_Request, global::System.Nullable<global::System.DateTime> Original_Release, int Original_ID_Advertiser, int Original_ID_Publisher, int ID) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> Request, global::System.Nullable<global::System.DateTime> Release, int ID_Advertiser, int ID_Publisher, string Сomment, int Original_ID, global::System.Nullable<global::System.DateTime> Original_Request, global::System.Nullable<global::System.DateTime> Original_Release, int Original_ID_Advertiser, int Original_ID_Publisher, string Original_Сomment, int ID) {
             if ((Request.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(Request.Value));
             }
@@ -5250,26 +5984,40 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ID_Advertiser));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(ID_Publisher));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
-            if ((Original_Request.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_Request.Value));
+            if ((Сomment == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Сomment));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
+            if ((Original_Request.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_Request.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((Original_Release.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_Release.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_Release.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID_Advertiser));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID_Publisher));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(ID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID_Advertiser));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_ID_Publisher));
+            if ((Original_Сomment == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Сomment));
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5290,8 +6038,391 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> Request, global::System.Nullable<global::System.DateTime> Release, int ID_Advertiser, int ID_Publisher, int Original_ID, global::System.Nullable<global::System.DateTime> Original_Request, global::System.Nullable<global::System.DateTime> Original_Release, int Original_ID_Advertiser, int Original_ID_Publisher) {
-            return this.Update(Request, Release, ID_Advertiser, ID_Publisher, Original_ID, Original_Request, Original_Release, Original_ID_Advertiser, Original_ID_Publisher, Original_ID);
+        public virtual int Update(global::System.Nullable<global::System.DateTime> Request, global::System.Nullable<global::System.DateTime> Release, int ID_Advertiser, int ID_Publisher, string Сomment, int Original_ID, global::System.Nullable<global::System.DateTime> Original_Request, global::System.Nullable<global::System.DateTime> Original_Release, int Original_ID_Advertiser, int Original_ID_Publisher, string Original_Сomment) {
+            return this.Update(Request, Release, ID_Advertiser, ID_Publisher, Сomment, Original_ID, Original_Request, Original_Release, Original_ID_Advertiser, Original_ID_Publisher, Original_Сomment, Original_ID);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class AutorizationTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public AutorizationTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Autorization";
+            tableMapping.ColumnMappings.Add("ID_Autorization", "ID_Autorization");
+            tableMapping.ColumnMappings.Add("login", "login");
+            tableMapping.ColumnMappings.Add("password", "password");
+            tableMapping.ColumnMappings.Add("Role", "Role");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Autorization] WHERE (([ID_Autorization] = @Original_ID_Autoriz" +
+                "ation) AND ([login] = @Original_login) AND ([password] = @Original_password) AND" +
+                " ((@IsNull_Role = 1 AND [Role] IS NULL) OR ([Role] = @Original_Role)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Role", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Role", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Role", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Role", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Autorization] ([login], [password], [Role]) VALUES (@login, @p" +
+                "assword, @Role);\r\nSELECT ID_Autorization, login, password, Role FROM Autorizatio" +
+                "n WHERE (ID_Autorization = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Role", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Autorization] SET [login] = @login, [password] = @password, [Role] = @Role WHERE (([ID_Autorization] = @Original_ID_Autorization) AND ([login] = @Original_login) AND ([password] = @Original_password) AND ((@IsNull_Role = 1 AND [Role] IS NULL) OR ([Role] = @Original_Role)));
+SELECT ID_Autorization, login, password, Role FROM Autorization WHERE (ID_Autorization = @ID_Autorization)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Role", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Autorization", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Role", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Role", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Role", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Role", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Autorization", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Autorization", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::WindowsFormsApp11.Properties.Settings.Default.AAConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_Autorization, login, password, Role FROM dbo.Autorization";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AADataSet.AutorizationDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AADataSet.AutorizationDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            AADataSet.AutorizationDataTable dataTable = new AADataSet.AutorizationDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AADataSet.AutorizationDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AADataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Autorization");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID_Autorization, string Original_login, string Original_password, global::System.Nullable<bool> Original_Role) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Autorization));
+            if ((Original_login == null)) {
+                throw new global::System.ArgumentNullException("Original_login");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_login));
+            }
+            if ((Original_password == null)) {
+                throw new global::System.ArgumentNullException("Original_password");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_password));
+            }
+            if ((Original_Role.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_Role.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string login, string password, global::System.Nullable<bool> Role) {
+            if ((login == null)) {
+                throw new global::System.ArgumentNullException("login");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(password));
+            }
+            if ((Role.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Role.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string login, string password, global::System.Nullable<bool> Role, int Original_ID_Autorization, string Original_login, string Original_password, global::System.Nullable<bool> Original_Role, int ID_Autorization) {
+            if ((login == null)) {
+                throw new global::System.ArgumentNullException("login");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(login));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(password));
+            }
+            if ((Role.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Role.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID_Autorization));
+            if ((Original_login == null)) {
+                throw new global::System.ArgumentNullException("Original_login");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_login));
+            }
+            if ((Original_password == null)) {
+                throw new global::System.ArgumentNullException("Original_password");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_password));
+            }
+            if ((Original_Role.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Original_Role.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ID_Autorization));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string login, string password, global::System.Nullable<bool> Role, int Original_ID_Autorization, string Original_login, string Original_password, global::System.Nullable<bool> Original_Role) {
+            return this.Update(login, password, Role, Original_ID_Autorization, Original_login, Original_password, Original_Role, Original_ID_Autorization);
         }
     }
     
@@ -5318,6 +6449,8 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
         private ServiceTableAdapter _serviceTableAdapter;
         
         private StatementTableAdapter _statementTableAdapter;
+        
+        private AutorizationTableAdapter _autorizationTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5420,6 +6553,20 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public AutorizationTableAdapter AutorizationTableAdapter {
+            get {
+                return this._autorizationTableAdapter;
+            }
+            set {
+                this._autorizationTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -5461,6 +6608,10 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                             && (this._statementTableAdapter.Connection != null))) {
                     return this._statementTableAdapter.Connection;
                 }
+                if (((this._autorizationTableAdapter != null) 
+                            && (this._autorizationTableAdapter.Connection != null))) {
+                    return this._autorizationTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -5492,6 +6643,9 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                 if ((this._statementTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._autorizationTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -5512,21 +6666,12 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._formTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Form.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._autorizationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Autorization.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._formTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._serviceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._serviceTableAdapter.Update(updatedRows));
+                    result = (result + this._autorizationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5539,12 +6684,30 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._formTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Form.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._formTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._publisherTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Publisher.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._publisherTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._serviceTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._serviceTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5575,19 +6738,11 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._formTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Form.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._autorizationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Autorization.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._formTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._serviceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._serviceTableAdapter.Update(addedRows));
+                    result = (result + this._autorizationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5599,11 +6754,27 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._formTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Form.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._formTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._publisherTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Publisher.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._publisherTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._serviceTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._serviceTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5633,11 +6804,27 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._serviceTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._serviceTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._publisherTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Publisher.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._publisherTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._formTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Form.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._formTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5649,19 +6836,11 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._serviceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._autorizationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Autorization.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._serviceTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._formTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Form.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._formTableAdapter.Update(deletedRows));
+                    result = (result + this._autorizationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5739,6 +6918,11 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
             }
             if (((this._statementTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._statementTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._autorizationTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._autorizationTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -5828,6 +7012,15 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                         adaptersWithAcceptChangesDuringUpdate.Add(this._statementTableAdapter.Adapter);
                     }
                 }
+                if ((this._autorizationTableAdapter != null)) {
+                    revertConnections.Add(this._autorizationTableAdapter, this._autorizationTableAdapter.Connection);
+                    this._autorizationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._autorizationTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._autorizationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._autorizationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._autorizationTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -5909,6 +7102,10 @@ SELECT ID, Request, Release, ID_Advertiser, ID_Publisher FROM Statement WHERE (I
                 if ((this._statementTableAdapter != null)) {
                     this._statementTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._statementTableAdapter]));
                     this._statementTableAdapter.Transaction = null;
+                }
+                if ((this._autorizationTableAdapter != null)) {
+                    this._autorizationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._autorizationTableAdapter]));
+                    this._autorizationTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

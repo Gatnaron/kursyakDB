@@ -47,7 +47,7 @@ namespace WindowsFormsApp11
         private void button1_Click(object sender, EventArgs e)
         {
             conn.Open();
-            adapter = new SqlDataAdapter("SELECT Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher" + $" WHERE Statement.Request = '{dateTimePicker1.Text}' AND Statement.Release = '{dateTimePicker2.Text}'", conn);
+            adapter = new SqlDataAdapter("SELECT Statement.ID AS '№', Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher" + $" WHERE Statement.Request = '{dateTimePicker1.Text}' AND Statement.Release = '{dateTimePicker2.Text}'", conn);
             dt = new DataTable();
             adapter.Fill(dt);
             dataGridView4.DataSource = dt;
@@ -74,29 +74,29 @@ namespace WindowsFormsApp11
                 }
                 if (tabControl2.SelectedTab == tabPage3)
                 {
-                    dateTimePicker_Request.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    dateTimePicker_Release.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    comboBox_AdvertiserTitle.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    comboBox_PublisherTitle.Text = dataGridView4.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    dateTimePicker_Request.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    dateTimePicker_Release.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    comboBox_AdvertiserTitle.Text = dataGridView4.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    comboBox_PublisherTitle.Text = dataGridView4.Rows[e.RowIndex].Cells[4].Value.ToString();
                 }
                 if (tabControl2.SelectedTab == tabPage1)
                 {
-                    textBox_CityID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    textBox_CityName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    textBox_countAdvInCity.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    textBox_countPubInCity.Text = dataGridView4.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    //textBox_CityID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox_CityName.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox_countAdvInCity.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    textBox_countPubInCity.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
             }
                 if (tabControl2.SelectedTab == tabPage2)
                 {
-                    textBox_FormID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    textBox_FormName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    textBox_countPubInForm.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    //textBox_FormID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox_FormName.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox_countPubInForm.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
                 }
                 if (tabControl2.SelectedTab == tabPage6)
                 {
-                    textBox_ServID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    textBox_ServName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    textBox_countPubInServ.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    //textBox_ServID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox_ServName.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox_countPubInServ.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
                 }
         }
 
@@ -114,8 +114,8 @@ namespace WindowsFormsApp11
         {
             conn.Open();
             command = new SqlCommand($"DELETE Advertiser WHERE ID_Advertiser = {comboBox_AID.SelectedValue}", conn);
-            
             command.ExecuteNonQuery();
+            this.advertiserTableAdapter.Fill(this.aADataSet.Advertiser);
             conn.Close();
             MessageBox.Show("Рекламодатель удален");
         }
@@ -156,99 +156,6 @@ namespace WindowsFormsApp11
             conn.Close();
             MessageBox.Show("Заказ удален");
         }
-
-        /*private void toolStripButton1_Click_1(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Advertiser.Title AS 'Компания', Advertiser.Surname AS 'Фамилия', Advertiser.Name AS 'Имя', Advertiser.Patronymic AS 'Отчество',City.Name AS 'Город' FROM dbo.Advertiser JOIN dbo.City ON Advertiser.ID_City = City.ID_City", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            
-            conn.Close();
-        }
-
-        private void toolStripButton2_Click_1(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Publisher.Title AS 'Компания', City.Name AS 'Город', Form.Form AS 'Форма', Service.Name AS 'Услуга' FROM dbo.Publisher JOIN dbo.City ON Publisher.ID_City = City.ID_City JOIN dbo.Form ON Publisher.ID_Form = Form.ID_Form JOIN dbo.Service ON Publisher.ID_Service = Service.ID_Service", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-
-            conn.Close();
-        }
-
-        private void toolStripButton3_Click_1(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-
-            conn.Close();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Advertiser.Title AS 'Компания', Advertiser.Surname AS 'Фамилия', Advertiser.Name AS 'Имя', Advertiser.Patronymic AS 'Отчество',City.Name AS 'Город' FROM dbo.Advertiser JOIN dbo.City ON Advertiser.ID_City = City.ID_City", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            conn.Close();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Publisher.Title AS 'Компания', City.Name AS 'Город', Form.Form AS 'Форма', Service.Name AS 'Услуга' FROM dbo.Publisher JOIN dbo.City ON Publisher.ID_City = City.ID_City JOIN dbo.Form ON Publisher.ID_Form = Form.ID_Form JOIN dbo.Service ON Publisher.ID_Service = Service.ID_Service", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            conn.Close();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            conn.Close();
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT City.ID_City AS '№', City.Name AS 'Название', (SELECT COUNT(Advertiser.ID_Advertiser) FROM Advertiser WHERE City.ID_City = Advertiser.ID_City) AS 'Рекламодателей', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE City.ID_City = Publisher.ID_City) AS 'Издателей' FROM City", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            conn.Close();
-        }
-
-        private void toolStripButton5_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            adapter = new SqlDataAdapter("SELECT Form.ID_Form AS '№', Form.Form AS 'Форма', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE Form.ID_Form = Publisher.ID_Form) AS 'Издателей' FROM Form", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            conn.Close();
-        }
-
-        private void toolStripButton6_Click(object sender, EventArgs e)
-        {
-            *//*conn.Open();
-            adapter = new SqlDataAdapter("SELECT Service.ID_Service AS '№', Service.Name AS 'Название', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE Service.ID_Service = Publisher.ID_Service) AS 'Издателей' FROM Service", conn);
-            dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView4.DataSource = dt;
-            conn.Close();*//*
-        }*/
 
         private void button_del4_Click(object sender, EventArgs e)
         {
@@ -338,7 +245,7 @@ namespace WindowsFormsApp11
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
             conn.Open();
-            adapter = new SqlDataAdapter("SELECT Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher", conn);
+            adapter = new SqlDataAdapter("SELECT Statement.ID AS '№', Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher", conn);
             dt = new DataTable();
             adapter.Fill(dt);
             dataGridView4.DataSource = dt;
@@ -349,7 +256,7 @@ namespace WindowsFormsApp11
         private void toolStripButton10_Click(object sender, EventArgs e)
         {
             conn.Open();
-            adapter = new SqlDataAdapter("SELECT City.ID_City AS '№', City.Name AS 'Название', (SELECT COUNT(Advertiser.ID_Advertiser) FROM Advertiser WHERE City.ID_City = Advertiser.ID_City) AS 'Рекламодателей', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE City.ID_City = Publisher.ID_City) AS 'Издателей' FROM City", conn);
+            adapter = new SqlDataAdapter("SELECT City.Name AS 'Название', (SELECT COUNT(Advertiser.ID_Advertiser) FROM Advertiser WHERE City.ID_City = Advertiser.ID_City) AS 'Рекламодателей', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE City.ID_City = Publisher.ID_City) AS 'Издателей' FROM City", conn);
             dt = new DataTable();
             adapter.Fill(dt);
             dataGridView4.DataSource = dt;
@@ -359,7 +266,7 @@ namespace WindowsFormsApp11
         private void toolStripButton11_Click(object sender, EventArgs e)
         {
             conn.Open();
-            adapter = new SqlDataAdapter("SELECT Form.ID_Form AS '№', Form.Form AS 'Форма', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE Form.ID_Form = Publisher.ID_Form) AS 'Издателей' FROM Form", conn);
+            adapter = new SqlDataAdapter("SELECT Form.Form AS 'Форма', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE Form.ID_Form = Publisher.ID_Form) AS 'Издателей' FROM Form", conn);
             dt = new DataTable();
             adapter.Fill(dt);
             dataGridView4.DataSource = dt;
@@ -369,11 +276,19 @@ namespace WindowsFormsApp11
         private void toolStripButton12_Click(object sender, EventArgs e)
         {
             conn.Open();
-            adapter = new SqlDataAdapter("SELECT Service.ID_Service AS '№', Service.Name AS 'Название', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE Service.ID_Service = Publisher.ID_Service) AS 'Издателей' FROM Service", conn);
+            adapter = new SqlDataAdapter("SELECT Service.Name AS 'Название', (SELECT COUNT(Publisher.ID_Publisher) FROM Publisher WHERE Service.ID_Service = Publisher.ID_Service) AS 'Издателей' FROM Service", conn);
             dt = new DataTable();
             adapter.Fill(dt);
             dataGridView4.DataSource = dt;
             conn.Close();
+        }
+
+        private void button_exitManager_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            MessageBox.Show("Вы вышли из профиля МЕНЕДЖЕРА");
+            this.Close();
+            form4.ShowDialog();
         }
     }
 }

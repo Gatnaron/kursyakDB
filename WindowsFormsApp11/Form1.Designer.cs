@@ -86,27 +86,29 @@
             this.dateTimePicker_Request = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox_countPubInCity = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox_countAdvInCity = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.textBox_CityName = new System.Windows.Forms.TextBox();
-            this.textBox_CityID = new System.Windows.Forms.TextBox();
             this.button_add4 = new System.Windows.Forms.Button();
             this.button_del4 = new System.Windows.Forms.Button();
             this.comboBox_IDCity = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox_countPubInForm = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.textBox_FormName = new System.Windows.Forms.TextBox();
-            this.textBox_FormID = new System.Windows.Forms.TextBox();
             this.button_add5 = new System.Windows.Forms.Button();
             this.button_del5 = new System.Windows.Forms.Button();
             this.comboBox_IDForm = new System.Windows.Forms.ComboBox();
             this.formBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox_countPubInServ = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.textBox_ServName = new System.Windows.Forms.TextBox();
-            this.textBox_ServID = new System.Windows.Forms.TextBox();
             this.button_add6 = new System.Windows.Forms.Button();
             this.button_del6 = new System.Windows.Forms.Button();
             this.comboBox_IDServ = new System.Windows.Forms.ComboBox();
@@ -118,14 +120,6 @@
             this.serviceTableAdapter = new WindowsFormsApp11.AADataSetTableAdapters.ServiceTableAdapter();
             this.publisherTableAdapter = new WindowsFormsApp11.AADataSetTableAdapters.PublisherTableAdapter();
             this.statementTableAdapter = new WindowsFormsApp11.AADataSetTableAdapters.StatementTableAdapter();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox_countAdvInCity = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox_countPubInCity = new System.Windows.Forms.TextBox();
-            this.textBox_countPubInForm = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox_countPubInServ = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
@@ -134,6 +128,9 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.button_exitManager = new System.Windows.Forms.Button();
+            this.toolStripButton_Word = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_Excel = new System.Windows.Forms.ToolStripButton();
             this.groupBox2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -698,9 +695,7 @@
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.textBox_countAdvInCity);
             this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.textBox_CityName);
-            this.tabPage1.Controls.Add(this.textBox_CityID);
             this.tabPage1.Controls.Add(this.button_add4);
             this.tabPage1.Controls.Add(this.button_del4);
             this.tabPage1.Controls.Add(this.comboBox_IDCity);
@@ -712,6 +707,38 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(3, 64);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(97, 13);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Кол-во издателей";
+            // 
+            // textBox_countPubInCity
+            // 
+            this.textBox_countPubInCity.Location = new System.Drawing.Point(138, 61);
+            this.textBox_countPubInCity.Name = "textBox_countPubInCity";
+            this.textBox_countPubInCity.Size = new System.Drawing.Size(174, 20);
+            this.textBox_countPubInCity.TabIndex = 31;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(3, 38);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(129, 13);
+            this.label22.TabIndex = 30;
+            this.label22.Text = "Кол-во рекламодателей";
+            // 
+            // textBox_countAdvInCity
+            // 
+            this.textBox_countAdvInCity.Location = new System.Drawing.Point(138, 35);
+            this.textBox_countAdvInCity.Name = "textBox_countAdvInCity";
+            this.textBox_countAdvInCity.Size = new System.Drawing.Size(174, 20);
+            this.textBox_countAdvInCity.TabIndex = 29;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -721,28 +748,12 @@
             this.label17.TabIndex = 28;
             this.label17.Text = "Название";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 12);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(106, 13);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "Порядковый номер";
-            // 
             // textBox_CityName
             // 
             this.textBox_CityName.Location = new System.Drawing.Point(138, 87);
             this.textBox_CityName.Name = "textBox_CityName";
             this.textBox_CityName.Size = new System.Drawing.Size(174, 20);
             this.textBox_CityName.TabIndex = 26;
-            // 
-            // textBox_CityID
-            // 
-            this.textBox_CityID.Location = new System.Drawing.Point(138, 9);
-            this.textBox_CityID.Name = "textBox_CityID";
-            this.textBox_CityID.Size = new System.Drawing.Size(174, 20);
-            this.textBox_CityID.TabIndex = 25;
             // 
             // button_add4
             // 
@@ -781,9 +792,7 @@
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.textBox_countPubInForm);
             this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.textBox_FormName);
-            this.tabPage2.Controls.Add(this.textBox_FormID);
             this.tabPage2.Controls.Add(this.button_add5);
             this.tabPage2.Controls.Add(this.button_del5);
             this.tabPage2.Controls.Add(this.comboBox_IDForm);
@@ -794,6 +803,22 @@
             this.tabPage2.Text = "Формы издательств";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(6, 65);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(97, 13);
+            this.label24.TabIndex = 37;
+            this.label24.Text = "Кол-во издателей";
+            // 
+            // textBox_countPubInForm
+            // 
+            this.textBox_countPubInForm.Location = new System.Drawing.Point(136, 62);
+            this.textBox_countPubInForm.Name = "textBox_countPubInForm";
+            this.textBox_countPubInForm.Size = new System.Drawing.Size(174, 20);
+            this.textBox_countPubInForm.TabIndex = 36;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -803,28 +828,12 @@
             this.label18.TabIndex = 35;
             this.label18.Text = "Название";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 39);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(106, 13);
-            this.label19.TabIndex = 34;
-            this.label19.Text = "Порядковый номер";
-            // 
             // textBox_FormName
             // 
             this.textBox_FormName.Location = new System.Drawing.Point(136, 88);
             this.textBox_FormName.Name = "textBox_FormName";
             this.textBox_FormName.Size = new System.Drawing.Size(174, 20);
             this.textBox_FormName.TabIndex = 33;
-            // 
-            // textBox_FormID
-            // 
-            this.textBox_FormID.Location = new System.Drawing.Point(136, 36);
-            this.textBox_FormID.Name = "textBox_FormID";
-            this.textBox_FormID.Size = new System.Drawing.Size(174, 20);
-            this.textBox_FormID.TabIndex = 32;
             // 
             // button_add5
             // 
@@ -867,9 +876,7 @@
             this.tabPage6.Controls.Add(this.label25);
             this.tabPage6.Controls.Add(this.textBox_countPubInServ);
             this.tabPage6.Controls.Add(this.label20);
-            this.tabPage6.Controls.Add(this.label21);
             this.tabPage6.Controls.Add(this.textBox_ServName);
-            this.tabPage6.Controls.Add(this.textBox_ServID);
             this.tabPage6.Controls.Add(this.button_add6);
             this.tabPage6.Controls.Add(this.button_del6);
             this.tabPage6.Controls.Add(this.comboBox_IDServ);
@@ -880,6 +887,22 @@
             this.tabPage6.Text = "Услуги издательств";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(4, 65);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(97, 13);
+            this.label25.TabIndex = 44;
+            this.label25.Text = "Кол-во издателей";
+            // 
+            // textBox_countPubInServ
+            // 
+            this.textBox_countPubInServ.Location = new System.Drawing.Point(134, 62);
+            this.textBox_countPubInServ.Name = "textBox_countPubInServ";
+            this.textBox_countPubInServ.Size = new System.Drawing.Size(174, 20);
+            this.textBox_countPubInServ.TabIndex = 43;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -889,28 +912,12 @@
             this.label20.TabIndex = 42;
             this.label20.Text = "Название";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 35);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(106, 13);
-            this.label21.TabIndex = 41;
-            this.label21.Text = "Порядковый номер";
-            // 
             // textBox_ServName
             // 
             this.textBox_ServName.Location = new System.Drawing.Point(134, 88);
             this.textBox_ServName.Name = "textBox_ServName";
             this.textBox_ServName.Size = new System.Drawing.Size(174, 20);
             this.textBox_ServName.TabIndex = 40;
-            // 
-            // textBox_ServID
-            // 
-            this.textBox_ServID.Location = new System.Drawing.Point(134, 32);
-            this.textBox_ServID.Name = "textBox_ServID";
-            this.textBox_ServID.Size = new System.Drawing.Size(174, 20);
-            this.textBox_ServID.TabIndex = 39;
             // 
             // button_add6
             // 
@@ -981,70 +988,6 @@
             // 
             this.statementTableAdapter.ClearBeforeFill = true;
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 38);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(129, 13);
-            this.label22.TabIndex = 30;
-            this.label22.Text = "Кол-во рекламодателей";
-            // 
-            // textBox_countAdvInCity
-            // 
-            this.textBox_countAdvInCity.Location = new System.Drawing.Point(138, 35);
-            this.textBox_countAdvInCity.Name = "textBox_countAdvInCity";
-            this.textBox_countAdvInCity.Size = new System.Drawing.Size(174, 20);
-            this.textBox_countAdvInCity.TabIndex = 29;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 64);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(97, 13);
-            this.label23.TabIndex = 32;
-            this.label23.Text = "Кол-во издателей";
-            // 
-            // textBox_countPubInCity
-            // 
-            this.textBox_countPubInCity.Location = new System.Drawing.Point(138, 61);
-            this.textBox_countPubInCity.Name = "textBox_countPubInCity";
-            this.textBox_countPubInCity.Size = new System.Drawing.Size(174, 20);
-            this.textBox_countPubInCity.TabIndex = 31;
-            // 
-            // textBox_countPubInForm
-            // 
-            this.textBox_countPubInForm.Location = new System.Drawing.Point(136, 62);
-            this.textBox_countPubInForm.Name = "textBox_countPubInForm";
-            this.textBox_countPubInForm.Size = new System.Drawing.Size(174, 20);
-            this.textBox_countPubInForm.TabIndex = 36;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 65);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(97, 13);
-            this.label24.TabIndex = 37;
-            this.label24.Text = "Кол-во издателей";
-            // 
-            // textBox_countPubInServ
-            // 
-            this.textBox_countPubInServ.Location = new System.Drawing.Point(134, 62);
-            this.textBox_countPubInServ.Name = "textBox_countPubInServ";
-            this.textBox_countPubInServ.Size = new System.Drawing.Size(174, 20);
-            this.textBox_countPubInServ.TabIndex = 43;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(4, 65);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(97, 13);
-            this.label25.TabIndex = 44;
-            this.label25.Text = "Кол-во издателей";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.toolStrip2);
@@ -1065,7 +1008,9 @@
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripButton11,
-            this.toolStripButton12});
+            this.toolStripButton12,
+            this.toolStripButton_Word,
+            this.toolStripButton_Excel});
             this.toolStrip2.Location = new System.Drawing.Point(3, 16);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(136, 290);
@@ -1138,11 +1083,38 @@
             this.toolStripButton12.Text = "Услуги издательств";
             this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
             // 
+            // button_exitManager
+            // 
+            this.button_exitManager.Location = new System.Drawing.Point(29, 466);
+            this.button_exitManager.Name = "button_exitManager";
+            this.button_exitManager.Size = new System.Drawing.Size(173, 23);
+            this.button_exitManager.TabIndex = 23;
+            this.button_exitManager.Text = "Выйти";
+            this.button_exitManager.UseVisualStyleBackColor = true;
+            this.button_exitManager.Click += new System.EventHandler(this.button_exitManager_Click);
+            // 
+            // toolStripButton_Word
+            // 
+            this.toolStripButton_Word.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Word.Image")));
+            this.toolStripButton_Word.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Word.Name = "toolStripButton_Word";
+            this.toolStripButton_Word.Size = new System.Drawing.Size(133, 20);
+            this.toolStripButton_Word.Text = "Импорт в Word";
+            // 
+            // toolStripButton_Excel
+            // 
+            this.toolStripButton_Excel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Excel.Image")));
+            this.toolStripButton_Excel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Excel.Name = "toolStripButton_Excel";
+            this.toolStripButton_Excel.Size = new System.Drawing.Size(133, 20);
+            this.toolStripButton_Excel.Text = "Импорт в Excel";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 505);
+            this.Controls.Add(this.button_exitManager);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tabControl2);
@@ -1250,26 +1222,20 @@
         private AADataSetTableAdapters.StatementTableAdapter statementTableAdapter;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox_CityName;
-        private System.Windows.Forms.TextBox textBox_CityID;
         private System.Windows.Forms.Button button_add4;
         private System.Windows.Forms.Button button_del4;
         private System.Windows.Forms.ComboBox comboBox_IDCity;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox_FormName;
-        private System.Windows.Forms.TextBox textBox_FormID;
         private System.Windows.Forms.Button button_add5;
         private System.Windows.Forms.Button button_del5;
         private System.Windows.Forms.ComboBox comboBox_IDForm;
         private System.Windows.Forms.BindingSource formBindingSource1;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox_ServName;
-        private System.Windows.Forms.TextBox textBox_ServID;
         private System.Windows.Forms.Button button_add6;
         private System.Windows.Forms.Button button_del6;
         private System.Windows.Forms.ComboBox comboBox_IDServ;
@@ -1290,6 +1256,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.Button button_exitManager;
+        private System.Windows.Forms.ToolStripButton toolStripButton_Word;
+        private System.Windows.Forms.ToolStripButton toolStripButton_Excel;
     }
 }
 

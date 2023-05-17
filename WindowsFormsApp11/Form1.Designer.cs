@@ -128,9 +128,9 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.button_exitManager = new System.Windows.Forms.Button();
             this.toolStripButton_Word = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Excel = new System.Windows.Forms.ToolStripButton();
+            this.button_exitManager = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -1083,6 +1083,26 @@
             this.toolStripButton12.Text = "Услуги издательств";
             this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
             // 
+            // toolStripButton_Word
+            // 
+            this.toolStripButton_Word.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStripButton_Word.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Word.Image")));
+            this.toolStripButton_Word.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Word.Name = "toolStripButton_Word";
+            this.toolStripButton_Word.Size = new System.Drawing.Size(133, 20);
+            this.toolStripButton_Word.Text = "Импорт в Word";
+            this.toolStripButton_Word.Click += new System.EventHandler(this.toolStripButton_Word_Click);
+            // 
+            // toolStripButton_Excel
+            // 
+            this.toolStripButton_Excel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStripButton_Excel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Excel.Image")));
+            this.toolStripButton_Excel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Excel.Name = "toolStripButton_Excel";
+            this.toolStripButton_Excel.Size = new System.Drawing.Size(133, 20);
+            this.toolStripButton_Excel.Text = "Импорт в Excel";
+            this.toolStripButton_Excel.Click += new System.EventHandler(this.toolStripButton_Excel_Click);
+            // 
             // button_exitManager
             // 
             this.button_exitManager.Location = new System.Drawing.Point(29, 466);
@@ -1092,22 +1112,6 @@
             this.button_exitManager.Text = "Выйти";
             this.button_exitManager.UseVisualStyleBackColor = true;
             this.button_exitManager.Click += new System.EventHandler(this.button_exitManager_Click);
-            // 
-            // toolStripButton_Word
-            // 
-            this.toolStripButton_Word.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Word.Image")));
-            this.toolStripButton_Word.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Word.Name = "toolStripButton_Word";
-            this.toolStripButton_Word.Size = new System.Drawing.Size(133, 20);
-            this.toolStripButton_Word.Text = "Импорт в Word";
-            // 
-            // toolStripButton_Excel
-            // 
-            this.toolStripButton_Excel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Excel.Image")));
-            this.toolStripButton_Excel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Excel.Name = "toolStripButton_Excel";
-            this.toolStripButton_Excel.Size = new System.Drawing.Size(133, 20);
-            this.toolStripButton_Excel.Text = "Импорт в Excel";
             // 
             // Form1
             // 

@@ -37,45 +37,50 @@ namespace WindowsFormsApp11
         {
             var login = textBox_login.Text;
             var password = textBox_password.Text;
-
+            Form2 form2 = new Form2();
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-                Form2 form2 = new Form2();
-                string querryString1 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}'";
-                string querryID1 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
-                
-                SqlCommand command = new SqlCommand(querryString1, datebase.getConnection());
+            int ID = 1;
 
-                datebase.openConnection();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+
+            string querryString1 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}'";
+            //string querryID1 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
+
+            SqlCommand command = new SqlCommand(querryString1, datebase.getConnection());
+
+            datebase.openConnection();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                ID = int.Parse(reader[0].ToString());
+            }
+            reader.Close();
+            datebase.closeConnection();
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+                using (SqlConnection connection = new DataBase().getConnection())
                 {
-                    querryID1 = (reader[0]).ToString();
+                    connection.Open();
+                    string querryAdv = $"SELECT Advertiser.Title, Advertiser.Surname, Advertiser.Name, Advertiser.Patronymic, City.Name FROM dbo.Advertiser JOIN dbo.City ON Advertiser.ID_City = City.ID_City WHERE ID_Autorization = {ID}";
+                    SqlCommand command1 = new SqlCommand(querryAdv, connection);
+                    using (SqlDataReader reader1 = command1.ExecuteReader())
+                    {
+                        while (reader1.Read())
+                        {
+                            form2.textBox_title.Text = reader1.GetValue(0).ToString();
+                            form2.textBox_surname.Text = reader1.GetValue(1).ToString();
+                            form2.textBox_name.Text = reader1.GetValue(2).ToString();
+                            form2.textBox_patronymic.Text = reader1.GetValue(3).ToString();
+                            form2.textBox_city.Text = reader1.GetValue(4).ToString();
+                        }
+                        reader1.Close();
+                    }
+                    connection.Close();
                 }
-                reader.Close();
-                datebase.closeConnection();
-
-                adapter.SelectCommand = command;
-                adapter.Fill(table);
-
-                string querryAdv = $"SELECT Advertiser.Title, Advertiser.Surname, Advertiser.Name, Advertiser.Patronymic, City.Name FROM dbo.Advertiser JOIN dbo.City ON Advertiser.ID_City = City.ID_City WHERE ID_Autorization = {querryID1}";
-                SqlCommand command1 = new SqlCommand(querryAdv, datebase.getConnection());
-                
-                datebase.openConnection();
-                reader = command1.ExecuteReader();
-                while (reader.Read())
-                {
-                    form2.textBox_title.Text = (reader[0]).ToString();
-                    form2.textBox_surname.Text = (reader[1].ToString());
-                    form2.textBox_name.Text = (reader[2].ToString());
-                    form2.textBox_patronymic.Text = (reader[3].ToString());
-                    form2.textBox_city.Text = (reader[4].ToString());
-                }
-                reader.Close();
-                datebase.closeConnection();
-
-                string querryStatement1 = $"SELECT Statement.ID AS '№', Statement.Request AS 'Заказ', Statement.Release AS 'Выпуск', Publisher.Title AS 'Издатель', Statement.Сomment AS 'Комметарий' FROM Statement JOIN Publisher ON Statement.ID_Publisher = Publisher.ID_Publisher WHERE Statement.ID_Advertiser = (SELECT Autorization.ID_Autorization FROM Autorization JOIN Advertiser ON Advertiser.ID_Autorization = Autorization.ID_Autorization WHERE Autorization.ID_Autorization = {querryID1})";
+                string querryStatement1 = $"SELECT Statement.ID AS '№', Statement.Request AS 'Заказ', Statement.Release AS 'Выпуск', Publisher.Title AS 'Издатель', Statement.Сomment AS 'Комметарий' FROM Statement JOIN Publisher ON Statement.ID_Publisher = Publisher.ID_Publisher WHERE Statement.ID_Advertiser = (SELECT Autorization.ID_Autorization FROM Autorization JOIN Advertiser ON Advertiser.ID_Autorization = Autorization.ID_Autorization WHERE Autorization.ID_Autorization = {ID})";
                 datebase.openConnection();
                 adapter = new SqlDataAdapter(querryStatement1, datebase.getConnection());
                 table = new DataTable();
@@ -84,7 +89,7 @@ namespace WindowsFormsApp11
 
                 datebase.closeConnection();
 
-                if (table.Rows.Count == 1)
+                if (table.Rows.Count >= 1)
                 {
                     MessageBox.Show("Вы усепешно авторизировались как РЕКЛАМОДАТЕЛЬ");
 
@@ -95,6 +100,7 @@ namespace WindowsFormsApp11
                     MessageBox.Show("Такого аккаунта не существует");*/
             
             //
+            
                 string querryString2 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}'";
                 string querryID2 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
 
@@ -117,15 +123,15 @@ namespace WindowsFormsApp11
 
                 Form3 form3 = new Form3();
                 datebase.openConnection();
-                reader2 = command3.ExecuteReader();
-                while (reader2.Read())
+                SqlDataReader reader3 = command3.ExecuteReader();
+                while (reader3.Read())
                 {
-                    form3.textBox_Ptitle.Text = (reader2[0]).ToString();
-                    form3.textBox_Pcity.Text = (reader2[1]).ToString();
-                    form3.textBox_Pform.Text = (reader2[2]).ToString();
-                    form3.textBox_Pserv.Text = (reader2[3]).ToString();
+                    form3.textBox_Ptitle.Text = (reader3[0]).ToString();
+                    form3.textBox_Pcity.Text = (reader3[1]).ToString();
+                    form3.textBox_Pform.Text = (reader3[2]).ToString();
+                    form3.textBox_Pserv.Text = (reader3[3]).ToString();
                 }
-                reader2.Close();
+                reader3.Close();
                 datebase.closeConnection();
 
                 string querryStatement2 = $"SELECT Statement.ID AS '№', Statement.Request AS 'Заказ', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Statement.Сomment AS 'Комметарий' FROM Statement JOIN Publisher ON Statement.ID_Publisher = Publisher.ID_Publisher JOIN Advertiser ON Statement.ID_Advertiser = Advertiser.ID_Advertiser WHERE Publisher.ID_Autorization = {querryID2}";

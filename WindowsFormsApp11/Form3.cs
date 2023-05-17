@@ -41,7 +41,7 @@ namespace WindowsFormsApp11
         {
             Form4 form4 = new Form4();
             MessageBox.Show("Вы вышли из профиля Издателя");
-            this.Close();
+            this.Hide();
             form4.ShowDialog();
         }
     }

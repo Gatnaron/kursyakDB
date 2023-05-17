@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.IO;
 
 namespace WindowsFormsApp11
 {
@@ -289,6 +292,95 @@ namespace WindowsFormsApp11
             MessageBox.Show("Вы вышли из профиля МЕНЕДЖЕРА");
             this.Close();
             form4.ShowDialog();
+        }
+
+        private void toolStripButton_Excel_Click(object sender, EventArgs e)
+        {
+            /*Excel.Application exApp = new Excel.Application();
+
+            exApp.Workbooks.Add();
+            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
+
+            for (int i = 0; i <= dataGridView4.RowCount-2; i++)
+            {
+                for (int j = 0; j <= dataGridView4.ColumnCount-1; j++)
+                {
+                    wsh.Cells[i + 1, j + 1] = dataGridView4[j, i].Value.ToString();
+                }
+            }
+            exApp.Visible = true;*/
+
+            var Articles = new[]
+        {
+                new {
+                    Id = "101", Name = "C++"
+                },
+                new {
+                    Id = "102", Name = "Python"
+                },
+                new {
+                    Id = "103", Name = "Java Script"
+                },
+                new {
+                    Id = "104", Name = "GO"
+                },
+                new {
+                    Id = "105", Name = "Java"
+                },
+                new {
+                    Id = "106", Name = "C#"
+                }
+            };
+
+            ExcelPackage excel = new ExcelPackage();
+
+            var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
+
+            workSheet.TabColor = System.Drawing.Color.Black;
+            workSheet.DefaultRowHeight = 12;
+
+            workSheet.Row(1).Height = 20;
+            workSheet.Row(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            workSheet.Row(1).Style.Font.Bold = true;
+
+            workSheet.Cells[1, 1].Value = "S.No";
+            workSheet.Cells[1, 2].Value = "Id";
+            workSheet.Cells[1, 3].Value = "Name";
+
+            int recordIndex = 2;
+
+            foreach (var article in Articles)
+            {
+                workSheet.Cells[recordIndex, 1].Value = (recordIndex - 1).ToString();
+                workSheet.Cells[recordIndex, 2].Value = article.Id;
+                workSheet.Cells[recordIndex, 3].Value = article.Name;
+                recordIndex++;
+            }
+
+            workSheet.Column(1).AutoFit();
+            workSheet.Column(2).AutoFit();
+            workSheet.Column(3).AutoFit();
+
+            string p_strPath = "D:\\Учеба\\4\\БД\\КП\\data.xlsx";
+
+            if (File.Exists(p_strPath))
+            {
+                File.Delete(p_strPath);
+            }
+
+            FileStream objFileStrm = File.Create(p_strPath);
+            objFileStrm.Close();
+
+            File.WriteAllBytes(p_strPath, excel.GetAsByteArray());
+
+            excel.Dispose();
+
+
+        }
+
+        private void toolStripButton_Word_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -115,11 +115,6 @@ namespace WindowsFormsApp11
 
         }
 
-        private void button_exit_Click(object sender, EventArgs e)
-        {
-            Form4 form4 = new Form4();
-            this.Close();
-            form4.ShowDialog();
-        }
+        
     }
 }

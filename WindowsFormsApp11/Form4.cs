@@ -33,33 +33,35 @@ namespace WindowsFormsApp11
             form5.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Autorization()
         {
             var login = textBox_login.Text;
             var password = textBox_password.Text;
+            var role = comboBox_role.SelectedIndex;
             Form2 form2 = new Form2();
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
             int ID = 1;
 
-
-            string querryString1 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}'";
-            //string querryID1 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
-
-            SqlCommand command = new SqlCommand(querryString1, datebase.getConnection());
-
-            datebase.openConnection();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            if (role == 0)
             {
-                ID = int.Parse(reader[0].ToString());
-            }
-            reader.Close();
-            datebase.closeConnection();
+                string querryString1 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}' AND Role = 0";
+                //string querryID1 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
 
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
+                SqlCommand command = new SqlCommand(querryString1, datebase.getConnection());
+
+                datebase.openConnection();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ID = int.Parse(reader[0].ToString());
+                }
+                reader.Close();
+                datebase.closeConnection();
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
 
                 using (SqlConnection connection = new DataBase().getConnection())
                 {
@@ -89,20 +91,19 @@ namespace WindowsFormsApp11
 
                 datebase.closeConnection();
 
-                if (table.Rows.Count >= 1)
+                if (table.Rows.Count >= 0)
                 {
-                    MessageBox.Show("Вы усепешно авторизировались как РЕКЛАМОДАТЕЛЬ");
-
                     this.Hide();
                     form2.ShowDialog();
                 }
-                /*else
-                    MessageBox.Show("Такого аккаунта не существует");*/
-            
-            //
-            
-                string querryString2 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}'";
-                string querryID2 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
+
+            }
+
+
+            if (role == 1)
+            {
+                string querryString2 = $"SELECT ID_Autorization, login, password FROM Autorization WHERE login = '{login}' AND password = '{password}' AND Role = 1";
+                //string querryID2 = $"SELECT ID_Autorization FROM Autorization WHERE login = '{login}' AND password = '{password}'";
 
                 SqlCommand command2 = new SqlCommand(querryString2, datebase.getConnection());
 
@@ -110,7 +111,7 @@ namespace WindowsFormsApp11
                 SqlDataReader reader2 = command2.ExecuteReader();
                 while (reader2.Read())
                 {
-                    querryID2 = (reader2[0]).ToString();
+                    ID = int.Parse(reader2[0].ToString());
                 }
                 reader2.Close();
                 datebase.closeConnection();
@@ -118,7 +119,7 @@ namespace WindowsFormsApp11
                 adapter.SelectCommand = command2;
                 adapter.Fill(table);
 
-                string querryPub = $"SELECT Publisher.Title, City.Name, Form.Form, Service.Name FROM dbo.Publisher  JOIN dbo.City ON Publisher.ID_City = City.ID_City JOIN dbo.Form ON Publisher.ID_Form = Form.ID_Form JOIN dbo.Service ON Publisher.ID_Service = Service.ID_Service WHERE ID_Autorization = {querryID2}";
+                string querryPub = $"SELECT Publisher.Title, City.Name, Form.Form, Service.Name FROM dbo.Publisher  JOIN dbo.City ON Publisher.ID_City = City.ID_City JOIN dbo.Form ON Publisher.ID_Form = Form.ID_Form JOIN dbo.Service ON Publisher.ID_Service = Service.ID_Service WHERE ID_Autorization = {ID}";
                 SqlCommand command3 = new SqlCommand(querryPub, datebase.getConnection());
 
                 Form3 form3 = new Form3();
@@ -134,7 +135,7 @@ namespace WindowsFormsApp11
                 reader3.Close();
                 datebase.closeConnection();
 
-                string querryStatement2 = $"SELECT Statement.ID AS '№', Statement.Request AS 'Заказ', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Statement.Сomment AS 'Комметарий' FROM Statement JOIN Publisher ON Statement.ID_Publisher = Publisher.ID_Publisher JOIN Advertiser ON Statement.ID_Advertiser = Advertiser.ID_Advertiser WHERE Publisher.ID_Autorization = {querryID2}";
+                string querryStatement2 = $"SELECT Statement.ID AS '№', Statement.Request AS 'Заказ', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Statement.Сomment AS 'Комметарий' FROM Statement JOIN Publisher ON Statement.ID_Publisher = Publisher.ID_Publisher JOIN Advertiser ON Statement.ID_Advertiser = Advertiser.ID_Advertiser WHERE Publisher.ID_Autorization = {ID}";
                 datebase.openConnection();
                 adapter = new SqlDataAdapter(querryStatement2, datebase.getConnection());
                 table = new DataTable();
@@ -143,14 +144,17 @@ namespace WindowsFormsApp11
 
                 datebase.closeConnection();
 
-                if (table.Rows.Count == 1)
+                if (table.Rows.Count >= 0)
                 {
-                    MessageBox.Show("Вы усепешно авторизировались как ИЗДАТЕЛЬ");
+                    this.Hide();
                     form3.ShowDialog();
                 }
-                /*else
-                    MessageBox.Show("Такого аккаунта не существует");*/
-            
+            }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Autorization();
+        } 
     }
 }

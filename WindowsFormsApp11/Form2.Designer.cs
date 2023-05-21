@@ -72,6 +72,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -136,6 +137,7 @@
             // 
             // textBox_city
             // 
+            this.textBox_city.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_city.Location = new System.Drawing.Point(122, 124);
             this.textBox_city.Name = "textBox_city";
             this.textBox_city.Size = new System.Drawing.Size(164, 20);
@@ -143,6 +145,7 @@
             // 
             // textBox_patronymic
             // 
+            this.textBox_patronymic.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_patronymic.Location = new System.Drawing.Point(122, 98);
             this.textBox_patronymic.Name = "textBox_patronymic";
             this.textBox_patronymic.Size = new System.Drawing.Size(164, 20);
@@ -150,6 +153,7 @@
             // 
             // textBox_name
             // 
+            this.textBox_name.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_name.Location = new System.Drawing.Point(122, 72);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.Size = new System.Drawing.Size(164, 20);
@@ -157,6 +161,7 @@
             // 
             // textBox_surname
             // 
+            this.textBox_surname.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_surname.Location = new System.Drawing.Point(122, 46);
             this.textBox_surname.Name = "textBox_surname";
             this.textBox_surname.Size = new System.Drawing.Size(164, 20);
@@ -164,6 +169,7 @@
             // 
             // textBox_title
             // 
+            this.textBox_title.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_title.Location = new System.Drawing.Point(122, 20);
             this.textBox_title.Name = "textBox_title";
             this.textBox_title.Size = new System.Drawing.Size(164, 20);
@@ -176,37 +182,40 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(13, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(356, 136);
+            this.groupBox2.Size = new System.Drawing.Size(488, 188);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Заказы";
             // 
             // button_exit
             // 
-            this.button_exit.Location = new System.Drawing.Point(6, 107);
+            this.button_exit.BackColor = System.Drawing.Color.SandyBrown;
+            this.button_exit.Location = new System.Drawing.Point(6, 159);
             this.button_exit.Name = "button_exit";
             this.button_exit.Size = new System.Drawing.Size(29, 23);
             this.button_exit.TabIndex = 25;
             this.button_exit.Text = "<";
-            this.button_exit.UseVisualStyleBackColor = true;
+            this.button_exit.UseVisualStyleBackColor = false;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
             // button_del
             // 
-            this.button_del.Location = new System.Drawing.Point(275, 107);
+            this.button_del.BackColor = System.Drawing.Color.SandyBrown;
+            this.button_del.Location = new System.Drawing.Point(407, 159);
             this.button_del.Name = "button_del";
             this.button_del.Size = new System.Drawing.Size(75, 23);
             this.button_del.TabIndex = 9;
             this.button_del.Text = "Удалить";
-            this.button_del.UseVisualStyleBackColor = true;
+            this.button_del.UseVisualStyleBackColor = false;
             this.button_del.Click += new System.EventHandler(this.button_del_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.SandyBrown;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(344, 88);
+            this.dataGridView1.Size = new System.Drawing.Size(476, 134);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
@@ -231,15 +240,20 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.textBox_Comment);
-            this.groupBox3.Location = new System.Drawing.Point(375, 13);
+            this.groupBox3.Location = new System.Drawing.Point(507, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(413, 294);
+            this.groupBox3.Size = new System.Drawing.Size(413, 353);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Создать новый заказ";
             // 
             // dateTimePicker_Release
             // 
+            this.dateTimePicker_Release.CalendarForeColor = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Release.CalendarMonthBackground = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Release.CalendarTitleBackColor = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Release.CalendarTitleForeColor = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Release.CalendarTrailingForeColor = System.Drawing.Color.SandyBrown;
             this.dateTimePicker_Release.CustomFormat = "yyyy-MM-dd";
             this.dateTimePicker_Release.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_Release.Location = new System.Drawing.Point(179, 48);
@@ -249,6 +263,11 @@
             // 
             // dateTimePicker_Request
             // 
+            this.dateTimePicker_Request.CalendarForeColor = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Request.CalendarMonthBackground = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Request.CalendarTitleBackColor = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Request.CalendarTitleForeColor = System.Drawing.Color.SandyBrown;
+            this.dateTimePicker_Request.CalendarTrailingForeColor = System.Drawing.Color.SandyBrown;
             this.dateTimePicker_Request.CustomFormat = "yyyy-MM-dd";
             this.dateTimePicker_Request.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_Request.Location = new System.Drawing.Point(179, 19);
@@ -267,6 +286,7 @@
             // 
             // comboBox_Publisher
             // 
+            this.comboBox_Publisher.BackColor = System.Drawing.Color.SandyBrown;
             this.comboBox_Publisher.DataSource = this.publisherBindingSource;
             this.comboBox_Publisher.DisplayMember = "Title";
             this.comboBox_Publisher.FormattingEnabled = true;
@@ -288,12 +308,13 @@
             // 
             // button_Create
             // 
-            this.button_Create.Location = new System.Drawing.Point(169, 265);
+            this.button_Create.BackColor = System.Drawing.Color.SandyBrown;
+            this.button_Create.Location = new System.Drawing.Point(163, 324);
             this.button_Create.Name = "button_Create";
             this.button_Create.Size = new System.Drawing.Size(75, 23);
             this.button_Create.TabIndex = 13;
             this.button_Create.Text = "Создать";
-            this.button_Create.UseVisualStyleBackColor = true;
+            this.button_Create.UseVisualStyleBackColor = false;
             this.button_Create.Click += new System.EventHandler(this.button_Create_Click);
             // 
             // label7
@@ -325,10 +346,11 @@
             // 
             // textBox_Comment
             // 
+            this.textBox_Comment.BackColor = System.Drawing.Color.SandyBrown;
             this.textBox_Comment.Location = new System.Drawing.Point(8, 123);
             this.textBox_Comment.Multiline = true;
             this.textBox_Comment.Name = "textBox_Comment";
-            this.textBox_Comment.Size = new System.Drawing.Size(399, 136);
+            this.textBox_Comment.Size = new System.Drawing.Size(399, 195);
             this.textBox_Comment.TabIndex = 9;
             // 
             // statementTableAdapter
@@ -343,7 +365,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 319);
+            this.BackColor = System.Drawing.Color.PeachPuff;
+            this.ClientSize = new System.Drawing.Size(932, 377);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

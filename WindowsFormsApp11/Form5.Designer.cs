@@ -66,7 +66,6 @@
             this.cityTableAdapter = new WindowsFormsApp11.AADataSetTableAdapters.CityTableAdapter();
             this.formTableAdapter = new WindowsFormsApp11.AADataSetTableAdapters.FormTableAdapter();
             this.serviceTableAdapter = new WindowsFormsApp11.AADataSetTableAdapters.ServiceTableAdapter();
-            this.button_exit = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cityBindingSource)).BeginInit();
@@ -78,26 +77,29 @@
             // 
             // button_back
             // 
+            this.button_back.BackColor = System.Drawing.Color.SandyBrown;
             this.button_back.Location = new System.Drawing.Point(12, 286);
             this.button_back.Name = "button_back";
             this.button_back.Size = new System.Drawing.Size(124, 23);
             this.button_back.TabIndex = 0;
             this.button_back.Text = "Назад";
-            this.button_back.UseVisualStyleBackColor = true;
+            this.button_back.UseVisualStyleBackColor = false;
             this.button_back.Click += new System.EventHandler(this.button_back_Click);
             // 
             // button_regist
             // 
+            this.button_regist.BackColor = System.Drawing.Color.SandyBrown;
             this.button_regist.Location = new System.Drawing.Point(143, 286);
             this.button_regist.Name = "button_regist";
             this.button_regist.Size = new System.Drawing.Size(124, 23);
             this.button_regist.TabIndex = 1;
             this.button_regist.Text = "Зарегистрироваться";
-            this.button_regist.UseVisualStyleBackColor = true;
+            this.button_regist.UseVisualStyleBackColor = false;
             this.button_regist.Click += new System.EventHandler(this.button_regist_Click);
             // 
             // textBox_log
             // 
+            this.textBox_log.BackColor = System.Drawing.Color.SandyBrown;
             this.textBox_log.Location = new System.Drawing.Point(86, 40);
             this.textBox_log.Name = "textBox_log";
             this.textBox_log.Size = new System.Drawing.Size(180, 20);
@@ -105,6 +107,7 @@
             // 
             // textBox_pass
             // 
+            this.textBox_pass.BackColor = System.Drawing.Color.SandyBrown;
             this.textBox_pass.Location = new System.Drawing.Point(86, 66);
             this.textBox_pass.Name = "textBox_pass";
             this.textBox_pass.Size = new System.Drawing.Size(180, 20);
@@ -112,6 +115,7 @@
             // 
             // comboBox_role
             // 
+            this.comboBox_role.BackColor = System.Drawing.Color.SandyBrown;
             this.comboBox_role.FormattingEnabled = true;
             this.comboBox_role.Items.AddRange(new object[] {
             "Рекламодатель",
@@ -170,6 +174,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
@@ -186,7 +191,6 @@
             this.tabPage1.Size = new System.Drawing.Size(246, 138);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Рекламодатель";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -284,6 +288,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
@@ -298,7 +303,6 @@
             this.tabPage2.Size = new System.Drawing.Size(246, 138);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Издатель";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -398,22 +402,12 @@
             // 
             this.serviceTableAdapter.ClearBeforeFill = true;
             // 
-            // button_exit
-            // 
-            this.button_exit.Location = new System.Drawing.Point(12, 6);
-            this.button_exit.Name = "button_exit";
-            this.button_exit.Size = new System.Drawing.Size(29, 23);
-            this.button_exit.TabIndex = 24;
-            this.button_exit.Text = "<";
-            this.button_exit.UseVisualStyleBackColor = true;
-            this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(279, 321);
-            this.Controls.Add(this.button_exit);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -425,7 +419,7 @@
             this.Controls.Add(this.textBox_pass);
             this.Controls.Add(this.textBox_log);
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.Text = "Регистрация";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -480,6 +474,5 @@
         private AADataSetTableAdapters.FormTableAdapter formTableAdapter;
         private System.Windows.Forms.BindingSource serviceBindingSource;
         private AADataSetTableAdapters.ServiceTableAdapter serviceTableAdapter;
-        private System.Windows.Forms.Button button_exit;
     }
 }

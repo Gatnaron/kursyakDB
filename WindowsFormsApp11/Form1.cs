@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+using iTextSharp;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Data.OleDb;
 
 namespace WindowsFormsApp11
 {
@@ -47,15 +52,19 @@ namespace WindowsFormsApp11
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void checkDateStatement()
         {
             conn.Open();
             adapter = new SqlDataAdapter("SELECT Statement.ID AS '№', Statement.Request AS 'Заявление', Statement.Release AS 'Выпуск', Advertiser.Title AS 'Рекламодатель', Publisher.Title AS 'Издатель' FROM dbo.Statement JOIN dbo.Advertiser ON Advertiser.ID_Advertiser = Statement.ID_Advertiser JOIN dbo.Publisher ON Publisher.ID_Publisher = Statement.ID_Publisher" + $" WHERE Statement.Request = '{dateTimePicker1.Text}' AND Statement.Release = '{dateTimePicker2.Text}'", conn);
             dt = new DataTable();
             adapter.Fill(dt);
             dataGridView4.DataSource = dt;
-
             conn.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            checkDateStatement();
         }
 
         private void dataGridView4_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -289,6 +298,7 @@ namespace WindowsFormsApp11
         private void button_exitManager_Click(object sender, EventArgs e)
         {
             Form4 form4 = new Form4();
+            this.Hide();
             MessageBox.Show("Вы вышли из профиля МЕНЕДЖЕРА");
             this.Close();
             form4.ShowDialog();
@@ -296,43 +306,9 @@ namespace WindowsFormsApp11
 
         private void toolStripButton_Excel_Click(object sender, EventArgs e)
         {
-            /*Excel.Application exApp = new Excel.Application();
-
-            exApp.Workbooks.Add();
-            Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
-
-            for (int i = 0; i <= dataGridView4.RowCount-2; i++)
-            {
-                for (int j = 0; j <= dataGridView4.ColumnCount-1; j++)
-                {
-                    wsh.Cells[i + 1, j + 1] = dataGridView4[j, i].Value.ToString();
-                }
-            }
-            exApp.Visible = true;*/
-
-            var Articles = new[]
-        {
-                new {
-                    Id = "101", Name = "C++"
-                },
-                new {
-                    Id = "102", Name = "Python"
-                },
-                new {
-                    Id = "103", Name = "Java Script"
-                },
-                new {
-                    Id = "104", Name = "GO"
-                },
-                new {
-                    Id = "105", Name = "Java"
-                },
-                new {
-                    Id = "106", Name = "C#"
-                }
-            };
-
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             ExcelPackage excel = new ExcelPackage();
+
 
             var workSheet = excel.Workbook.Worksheets.Add("Sheet1");
 
@@ -343,18 +319,16 @@ namespace WindowsFormsApp11
             workSheet.Row(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             workSheet.Row(1).Style.Font.Bold = true;
 
-            workSheet.Cells[1, 1].Value = "S.No";
-            workSheet.Cells[1, 2].Value = "Id";
-            workSheet.Cells[1, 3].Value = "Name";
-
-            int recordIndex = 2;
-
-            foreach (var article in Articles)
+            for (int i = 1; i < dataGridView4.Columns.Count + 1; i++)
             {
-                workSheet.Cells[recordIndex, 1].Value = (recordIndex - 1).ToString();
-                workSheet.Cells[recordIndex, 2].Value = article.Id;
-                workSheet.Cells[recordIndex, 3].Value = article.Name;
-                recordIndex++;
+                workSheet.Cells[1, i].Value = dataGridView4.Columns[i - 1].HeaderText;
+            }
+            for (int i = 0; i < dataGridView4.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView4.Columns.Count; j++)
+                {
+                    workSheet.Cells[i + 2, j + 1].Value = dataGridView4.Rows[i].Cells[j].Value.ToString();
+                }
             }
 
             workSheet.Column(1).AutoFit();
@@ -375,10 +349,10 @@ namespace WindowsFormsApp11
 
             excel.Dispose();
 
-
+            MessageBox.Show("Файл с таблицей загружен");
         }
 
-        private void toolStripButton_Word_Click(object sender, EventArgs e)
+        private void comboBox_AID_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

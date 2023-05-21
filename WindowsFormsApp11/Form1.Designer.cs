@@ -128,7 +128,6 @@
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_Word = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_Excel = new System.Windows.Forms.ToolStripButton();
             this.button_exitManager = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
@@ -158,6 +157,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.SandyBrown;
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
@@ -208,12 +208,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.PeachPuff;
             this.button1.Location = new System.Drawing.Point(6, 70);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Найти";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl2
@@ -224,6 +225,7 @@
             this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Controls.Add(this.tabPage2);
             this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl2.Location = new System.Drawing.Point(219, 327);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -232,6 +234,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage4.Controls.Add(this.Изменение);
             this.tabPage4.Controls.Add(this.comboBox_ACity);
             this.tabPage4.Controls.Add(this.label10);
@@ -249,7 +252,6 @@
             this.tabPage4.Size = new System.Drawing.Size(504, 141);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Рекламодатель";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // Изменение
             // 
@@ -265,34 +267,38 @@
             // 
             // button_del1
             // 
-            this.button_del1.Location = new System.Drawing.Point(6, 75);
+            this.button_del1.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_del1.Location = new System.Drawing.Point(6, 71);
             this.button_del1.Name = "button_del1";
-            this.button_del1.Size = new System.Drawing.Size(174, 23);
+            this.button_del1.Size = new System.Drawing.Size(174, 27);
             this.button_del1.TabIndex = 21;
             this.button_del1.Text = "Удалить";
-            this.button_del1.UseVisualStyleBackColor = true;
+            this.button_del1.UseVisualStyleBackColor = false;
             this.button_del1.Click += new System.EventHandler(this.button_del1_Click);
             // 
             // button_add1
             // 
-            this.button_add1.Location = new System.Drawing.Point(6, 16);
+            this.button_add1.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_add1.Location = new System.Drawing.Point(6, 12);
             this.button_add1.Name = "button_add1";
-            this.button_add1.Size = new System.Drawing.Size(174, 23);
+            this.button_add1.Size = new System.Drawing.Size(174, 27);
             this.button_add1.TabIndex = 21;
             this.button_add1.Text = "Добавить";
-            this.button_add1.UseVisualStyleBackColor = true;
+            this.button_add1.UseVisualStyleBackColor = false;
             this.button_add1.Click += new System.EventHandler(this.button_add1_Click);
             // 
             // comboBox_AID
             // 
+            this.comboBox_AID.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_AID.DataSource = this.advertiserBindingSource;
             this.comboBox_AID.DisplayMember = "Title";
             this.comboBox_AID.FormattingEnabled = true;
-            this.comboBox_AID.Location = new System.Drawing.Point(6, 51);
+            this.comboBox_AID.Location = new System.Drawing.Point(6, 44);
             this.comboBox_AID.Name = "comboBox_AID";
             this.comboBox_AID.Size = new System.Drawing.Size(174, 21);
             this.comboBox_AID.TabIndex = 23;
             this.comboBox_AID.ValueMember = "ID_Advertiser";
+            this.comboBox_AID.SelectedIndexChanged += new System.EventHandler(this.comboBox_AID_SelectedIndexChanged);
             // 
             // advertiserBindingSource
             // 
@@ -306,6 +312,7 @@
             // 
             // comboBox_ACity
             // 
+            this.comboBox_ACity.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_ACity.DataSource = this.cityBindingSource;
             this.comboBox_ACity.DisplayMember = "Name";
             this.comboBox_ACity.FormattingEnabled = true;
@@ -367,6 +374,7 @@
             // 
             // textBox_Patronymic
             // 
+            this.textBox_Patronymic.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_Patronymic.Location = new System.Drawing.Point(129, 84);
             this.textBox_Patronymic.Name = "textBox_Patronymic";
             this.textBox_Patronymic.Size = new System.Drawing.Size(182, 20);
@@ -374,6 +382,7 @@
             // 
             // textBox_Name
             // 
+            this.textBox_Name.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_Name.Location = new System.Drawing.Point(129, 58);
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(182, 20);
@@ -381,6 +390,7 @@
             // 
             // textBox_Surname
             // 
+            this.textBox_Surname.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_Surname.Location = new System.Drawing.Point(129, 32);
             this.textBox_Surname.Name = "textBox_Surname";
             this.textBox_Surname.Size = new System.Drawing.Size(182, 20);
@@ -388,6 +398,7 @@
             // 
             // textBox_AComp
             // 
+            this.textBox_AComp.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_AComp.Location = new System.Drawing.Point(129, 6);
             this.textBox_AComp.Name = "textBox_AComp";
             this.textBox_AComp.Size = new System.Drawing.Size(182, 20);
@@ -395,6 +406,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage5.Controls.Add(this.groupBox3);
             this.tabPage5.Controls.Add(this.comboBox_Serv);
             this.tabPage5.Controls.Add(this.comboBox_Form);
@@ -409,7 +421,6 @@
             this.tabPage5.Size = new System.Drawing.Size(504, 141);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Издатель";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -425,20 +436,22 @@
             // 
             // button_del2
             // 
+            this.button_del2.BackColor = System.Drawing.Color.PeachPuff;
             this.button_del2.Location = new System.Drawing.Point(6, 75);
             this.button_del2.Name = "button_del2";
             this.button_del2.Size = new System.Drawing.Size(174, 23);
             this.button_del2.TabIndex = 21;
             this.button_del2.Text = "Удалить";
-            this.button_del2.UseVisualStyleBackColor = true;
+            this.button_del2.UseVisualStyleBackColor = false;
             this.button_del2.Click += new System.EventHandler(this.button_del2_Click);
             // 
             // comboBox_PID
             // 
+            this.comboBox_PID.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_PID.DataSource = this.publisherBindingSource;
             this.comboBox_PID.DisplayMember = "Title";
             this.comboBox_PID.FormattingEnabled = true;
-            this.comboBox_PID.Location = new System.Drawing.Point(6, 52);
+            this.comboBox_PID.Location = new System.Drawing.Point(6, 48);
             this.comboBox_PID.Name = "comboBox_PID";
             this.comboBox_PID.Size = new System.Drawing.Size(174, 21);
             this.comboBox_PID.TabIndex = 27;
@@ -451,16 +464,18 @@
             // 
             // button_add2
             // 
+            this.button_add2.BackColor = System.Drawing.Color.PeachPuff;
             this.button_add2.Location = new System.Drawing.Point(6, 19);
             this.button_add2.Name = "button_add2";
             this.button_add2.Size = new System.Drawing.Size(174, 23);
             this.button_add2.TabIndex = 21;
             this.button_add2.Text = "Добавить";
-            this.button_add2.UseVisualStyleBackColor = true;
+            this.button_add2.UseVisualStyleBackColor = false;
             this.button_add2.Click += new System.EventHandler(this.button_add2_Click);
             // 
             // comboBox_Serv
             // 
+            this.comboBox_Serv.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_Serv.DataSource = this.serviceBindingSource;
             this.comboBox_Serv.DisplayMember = "Name";
             this.comboBox_Serv.FormattingEnabled = true;
@@ -477,6 +492,7 @@
             // 
             // comboBox_Form
             // 
+            this.comboBox_Form.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_Form.DataSource = this.formBindingSource;
             this.comboBox_Form.DisplayMember = "Form";
             this.comboBox_Form.FormattingEnabled = true;
@@ -493,6 +509,7 @@
             // 
             // comboBox_PCity
             // 
+            this.comboBox_PCity.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_PCity.DataSource = this.cityBindingSource;
             this.comboBox_PCity.DisplayMember = "Name";
             this.comboBox_PCity.FormattingEnabled = true;
@@ -540,6 +557,7 @@
             // 
             // textBox_PComp
             // 
+            this.textBox_PComp.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_PComp.Location = new System.Drawing.Point(129, 8);
             this.textBox_PComp.Name = "textBox_PComp";
             this.textBox_PComp.Size = new System.Drawing.Size(182, 20);
@@ -547,6 +565,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.comboBox_PublisherTitle);
             this.tabPage3.Controls.Add(this.comboBox_AdvertiserTitle);
@@ -562,7 +581,6 @@
             this.tabPage3.Size = new System.Drawing.Size(504, 141);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Заказы";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -578,20 +596,22 @@
             // 
             // button_del3
             // 
-            this.button_del3.Location = new System.Drawing.Point(6, 75);
+            this.button_del3.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_del3.Location = new System.Drawing.Point(6, 72);
             this.button_del3.Name = "button_del3";
-            this.button_del3.Size = new System.Drawing.Size(174, 23);
+            this.button_del3.Size = new System.Drawing.Size(174, 26);
             this.button_del3.TabIndex = 21;
             this.button_del3.Text = "Удалить";
-            this.button_del3.UseVisualStyleBackColor = true;
+            this.button_del3.UseVisualStyleBackColor = false;
             this.button_del3.Click += new System.EventHandler(this.button_del3_Click);
             // 
             // comboBox_SID
             // 
+            this.comboBox_SID.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_SID.DataSource = this.statementBindingSource;
             this.comboBox_SID.DisplayMember = "ID";
             this.comboBox_SID.FormattingEnabled = true;
-            this.comboBox_SID.Location = new System.Drawing.Point(6, 51);
+            this.comboBox_SID.Location = new System.Drawing.Point(6, 45);
             this.comboBox_SID.Name = "comboBox_SID";
             this.comboBox_SID.Size = new System.Drawing.Size(174, 21);
             this.comboBox_SID.TabIndex = 24;
@@ -604,16 +624,18 @@
             // 
             // button_add3
             // 
-            this.button_add3.Location = new System.Drawing.Point(6, 16);
+            this.button_add3.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_add3.Location = new System.Drawing.Point(6, 12);
             this.button_add3.Name = "button_add3";
-            this.button_add3.Size = new System.Drawing.Size(174, 23);
+            this.button_add3.Size = new System.Drawing.Size(174, 27);
             this.button_add3.TabIndex = 21;
             this.button_add3.Text = "Добавить";
-            this.button_add3.UseVisualStyleBackColor = true;
+            this.button_add3.UseVisualStyleBackColor = false;
             this.button_add3.Click += new System.EventHandler(this.button_add3_Click);
             // 
             // comboBox_PublisherTitle
             // 
+            this.comboBox_PublisherTitle.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_PublisherTitle.DataSource = this.publisherBindingSource;
             this.comboBox_PublisherTitle.DisplayMember = "Title";
             this.comboBox_PublisherTitle.FormattingEnabled = true;
@@ -625,6 +647,7 @@
             // 
             // comboBox_AdvertiserTitle
             // 
+            this.comboBox_AdvertiserTitle.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_AdvertiserTitle.DataSource = this.advertiserBindingSource;
             this.comboBox_AdvertiserTitle.DisplayMember = "Title";
             this.comboBox_AdvertiserTitle.FormattingEnabled = true;
@@ -690,6 +713,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.textBox_countPubInCity);
             this.tabPage1.Controls.Add(this.label22);
@@ -704,7 +728,6 @@
             this.tabPage1.Size = new System.Drawing.Size(504, 141);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Города";
-            this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label23
@@ -718,6 +741,7 @@
             // 
             // textBox_countPubInCity
             // 
+            this.textBox_countPubInCity.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_countPubInCity.Location = new System.Drawing.Point(138, 61);
             this.textBox_countPubInCity.Name = "textBox_countPubInCity";
             this.textBox_countPubInCity.Size = new System.Drawing.Size(174, 20);
@@ -734,6 +758,7 @@
             // 
             // textBox_countAdvInCity
             // 
+            this.textBox_countAdvInCity.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_countAdvInCity.Location = new System.Drawing.Point(138, 35);
             this.textBox_countAdvInCity.Name = "textBox_countAdvInCity";
             this.textBox_countAdvInCity.Size = new System.Drawing.Size(174, 20);
@@ -750,6 +775,7 @@
             // 
             // textBox_CityName
             // 
+            this.textBox_CityName.BackColor = System.Drawing.Color.PeachPuff;
             this.textBox_CityName.Location = new System.Drawing.Point(138, 87);
             this.textBox_CityName.Name = "textBox_CityName";
             this.textBox_CityName.Size = new System.Drawing.Size(174, 20);
@@ -757,26 +783,29 @@
             // 
             // button_add4
             // 
+            this.button_add4.BackColor = System.Drawing.Color.PeachPuff;
             this.button_add4.Location = new System.Drawing.Point(138, 113);
             this.button_add4.Name = "button_add4";
             this.button_add4.Size = new System.Drawing.Size(174, 23);
             this.button_add4.TabIndex = 21;
             this.button_add4.Text = "Добавить";
-            this.button_add4.UseVisualStyleBackColor = true;
+            this.button_add4.UseVisualStyleBackColor = false;
             this.button_add4.Click += new System.EventHandler(this.button_add4_Click);
             // 
             // button_del4
             // 
+            this.button_del4.BackColor = System.Drawing.Color.PeachPuff;
             this.button_del4.Location = new System.Drawing.Point(327, 113);
             this.button_del4.Name = "button_del4";
             this.button_del4.Size = new System.Drawing.Size(174, 23);
             this.button_del4.TabIndex = 21;
             this.button_del4.Text = "Удалить";
-            this.button_del4.UseVisualStyleBackColor = true;
+            this.button_del4.UseVisualStyleBackColor = false;
             this.button_del4.Click += new System.EventHandler(this.button_del4_Click);
             // 
             // comboBox_IDCity
             // 
+            this.comboBox_IDCity.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_IDCity.DataSource = this.cityBindingSource;
             this.comboBox_IDCity.DisplayMember = "Name";
             this.comboBox_IDCity.FormattingEnabled = true;
@@ -789,6 +818,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.textBox_countPubInForm);
             this.tabPage2.Controls.Add(this.label18);
@@ -801,12 +831,11 @@
             this.tabPage2.Size = new System.Drawing.Size(504, 141);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Формы издательств";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 65);
+            this.label24.Location = new System.Drawing.Point(6, 34);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(97, 13);
             this.label24.TabIndex = 37;
@@ -814,7 +843,8 @@
             // 
             // textBox_countPubInForm
             // 
-            this.textBox_countPubInForm.Location = new System.Drawing.Point(136, 62);
+            this.textBox_countPubInForm.BackColor = System.Drawing.Color.PeachPuff;
+            this.textBox_countPubInForm.Location = new System.Drawing.Point(136, 31);
             this.textBox_countPubInForm.Name = "textBox_countPubInForm";
             this.textBox_countPubInForm.Size = new System.Drawing.Size(174, 20);
             this.textBox_countPubInForm.TabIndex = 36;
@@ -822,7 +852,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 91);
+            this.label18.Location = new System.Drawing.Point(6, 60);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 35;
@@ -830,37 +860,41 @@
             // 
             // textBox_FormName
             // 
-            this.textBox_FormName.Location = new System.Drawing.Point(136, 88);
+            this.textBox_FormName.BackColor = System.Drawing.Color.PeachPuff;
+            this.textBox_FormName.Location = new System.Drawing.Point(136, 57);
             this.textBox_FormName.Name = "textBox_FormName";
             this.textBox_FormName.Size = new System.Drawing.Size(174, 20);
             this.textBox_FormName.TabIndex = 33;
             // 
             // button_add5
             // 
-            this.button_add5.Location = new System.Drawing.Point(136, 115);
+            this.button_add5.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_add5.Location = new System.Drawing.Point(136, 83);
             this.button_add5.Name = "button_add5";
-            this.button_add5.Size = new System.Drawing.Size(174, 23);
+            this.button_add5.Size = new System.Drawing.Size(174, 24);
             this.button_add5.TabIndex = 29;
             this.button_add5.Text = "Добавить";
-            this.button_add5.UseVisualStyleBackColor = true;
+            this.button_add5.UseVisualStyleBackColor = false;
             this.button_add5.Click += new System.EventHandler(this.button_add5_Click);
             // 
             // button_del5
             // 
-            this.button_del5.Location = new System.Drawing.Point(327, 115);
+            this.button_del5.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_del5.Location = new System.Drawing.Point(327, 83);
             this.button_del5.Name = "button_del5";
-            this.button_del5.Size = new System.Drawing.Size(174, 23);
+            this.button_del5.Size = new System.Drawing.Size(174, 24);
             this.button_del5.TabIndex = 30;
             this.button_del5.Text = "Удалить";
-            this.button_del5.UseVisualStyleBackColor = true;
+            this.button_del5.UseVisualStyleBackColor = false;
             this.button_del5.Click += new System.EventHandler(this.button_del5_Click);
             // 
             // comboBox_IDForm
             // 
+            this.comboBox_IDForm.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_IDForm.DataSource = this.formBindingSource1;
             this.comboBox_IDForm.DisplayMember = "Form";
             this.comboBox_IDForm.FormattingEnabled = true;
-            this.comboBox_IDForm.Location = new System.Drawing.Point(327, 88);
+            this.comboBox_IDForm.Location = new System.Drawing.Point(327, 57);
             this.comboBox_IDForm.Name = "comboBox_IDForm";
             this.comboBox_IDForm.Size = new System.Drawing.Size(174, 21);
             this.comboBox_IDForm.TabIndex = 31;
@@ -873,6 +907,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.BackColor = System.Drawing.Color.SandyBrown;
             this.tabPage6.Controls.Add(this.label25);
             this.tabPage6.Controls.Add(this.textBox_countPubInServ);
             this.tabPage6.Controls.Add(this.label20);
@@ -885,12 +920,11 @@
             this.tabPage6.Size = new System.Drawing.Size(504, 141);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Услуги издательств";
-            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(4, 65);
+            this.label25.Location = new System.Drawing.Point(4, 38);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(97, 13);
             this.label25.TabIndex = 44;
@@ -898,7 +932,8 @@
             // 
             // textBox_countPubInServ
             // 
-            this.textBox_countPubInServ.Location = new System.Drawing.Point(134, 62);
+            this.textBox_countPubInServ.BackColor = System.Drawing.Color.PeachPuff;
+            this.textBox_countPubInServ.Location = new System.Drawing.Point(134, 35);
             this.textBox_countPubInServ.Name = "textBox_countPubInServ";
             this.textBox_countPubInServ.Size = new System.Drawing.Size(174, 20);
             this.textBox_countPubInServ.TabIndex = 43;
@@ -906,7 +941,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(4, 91);
+            this.label20.Location = new System.Drawing.Point(4, 64);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(57, 13);
             this.label20.TabIndex = 42;
@@ -914,37 +949,41 @@
             // 
             // textBox_ServName
             // 
-            this.textBox_ServName.Location = new System.Drawing.Point(134, 88);
+            this.textBox_ServName.BackColor = System.Drawing.Color.PeachPuff;
+            this.textBox_ServName.Location = new System.Drawing.Point(134, 61);
             this.textBox_ServName.Name = "textBox_ServName";
             this.textBox_ServName.Size = new System.Drawing.Size(174, 20);
             this.textBox_ServName.TabIndex = 40;
             // 
             // button_add6
             // 
-            this.button_add6.Location = new System.Drawing.Point(134, 115);
+            this.button_add6.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_add6.Location = new System.Drawing.Point(134, 87);
             this.button_add6.Name = "button_add6";
-            this.button_add6.Size = new System.Drawing.Size(174, 23);
+            this.button_add6.Size = new System.Drawing.Size(174, 24);
             this.button_add6.TabIndex = 36;
             this.button_add6.Text = "Добавить";
-            this.button_add6.UseVisualStyleBackColor = true;
+            this.button_add6.UseVisualStyleBackColor = false;
             this.button_add6.Click += new System.EventHandler(this.button_add6_Click);
             // 
             // button_del6
             // 
-            this.button_del6.Location = new System.Drawing.Point(327, 115);
+            this.button_del6.BackColor = System.Drawing.Color.PeachPuff;
+            this.button_del6.Location = new System.Drawing.Point(327, 87);
             this.button_del6.Name = "button_del6";
-            this.button_del6.Size = new System.Drawing.Size(174, 23);
+            this.button_del6.Size = new System.Drawing.Size(174, 24);
             this.button_del6.TabIndex = 37;
             this.button_del6.Text = "Удалить";
-            this.button_del6.UseVisualStyleBackColor = true;
+            this.button_del6.UseVisualStyleBackColor = false;
             this.button_del6.Click += new System.EventHandler(this.button_del6_Click);
             // 
             // comboBox_IDServ
             // 
+            this.comboBox_IDServ.BackColor = System.Drawing.Color.PeachPuff;
             this.comboBox_IDServ.DataSource = this.serviceBindingSource1;
             this.comboBox_IDServ.DisplayMember = "Name";
             this.comboBox_IDServ.FormattingEnabled = true;
-            this.comboBox_IDServ.Location = new System.Drawing.Point(327, 88);
+            this.comboBox_IDServ.Location = new System.Drawing.Point(327, 61);
             this.comboBox_IDServ.Name = "comboBox_IDServ";
             this.comboBox_IDServ.Size = new System.Drawing.Size(174, 21);
             this.comboBox_IDServ.TabIndex = 38;
@@ -957,6 +996,7 @@
             // 
             // dataGridView4
             // 
+            this.dataGridView4.BackgroundColor = System.Drawing.Color.SandyBrown;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(142, 11);
             this.dataGridView4.Name = "dataGridView4";
@@ -1001,6 +1041,7 @@
             // 
             // toolStrip2
             // 
+            this.toolStrip2.BackColor = System.Drawing.Color.SandyBrown;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton7,
@@ -1009,7 +1050,6 @@
             this.toolStripButton10,
             this.toolStripButton11,
             this.toolStripButton12,
-            this.toolStripButton_Word,
             this.toolStripButton_Excel});
             this.toolStrip2.Location = new System.Drawing.Point(3, 16);
             this.toolStrip2.Name = "toolStrip2";
@@ -1019,6 +1059,7 @@
             // 
             // toolStripButton7
             // 
+            this.toolStripButton7.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
@@ -1030,6 +1071,7 @@
             // 
             // toolStripButton8
             // 
+            this.toolStripButton8.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
@@ -1041,6 +1083,7 @@
             // 
             // toolStripButton9
             // 
+            this.toolStripButton9.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
@@ -1052,6 +1095,7 @@
             // 
             // toolStripButton10
             // 
+            this.toolStripButton10.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
@@ -1063,6 +1107,7 @@
             // 
             // toolStripButton11
             // 
+            this.toolStripButton11.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
@@ -1074,6 +1119,7 @@
             // 
             // toolStripButton12
             // 
+            this.toolStripButton12.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
@@ -1083,40 +1129,33 @@
             this.toolStripButton12.Text = "Услуги издательств";
             this.toolStripButton12.Click += new System.EventHandler(this.toolStripButton12_Click);
             // 
-            // toolStripButton_Word
-            // 
-            this.toolStripButton_Word.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.toolStripButton_Word.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Word.Image")));
-            this.toolStripButton_Word.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Word.Name = "toolStripButton_Word";
-            this.toolStripButton_Word.Size = new System.Drawing.Size(133, 20);
-            this.toolStripButton_Word.Text = "Импорт в Word";
-            this.toolStripButton_Word.Click += new System.EventHandler(this.toolStripButton_Word_Click);
-            // 
             // toolStripButton_Excel
             // 
+            this.toolStripButton_Excel.BackColor = System.Drawing.Color.PeachPuff;
             this.toolStripButton_Excel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripButton_Excel.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Excel.Image")));
             this.toolStripButton_Excel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_Excel.Name = "toolStripButton_Excel";
             this.toolStripButton_Excel.Size = new System.Drawing.Size(133, 20);
-            this.toolStripButton_Excel.Text = "Импорт в Excel";
+            this.toolStripButton_Excel.Text = "Экспорт в Excel";
             this.toolStripButton_Excel.Click += new System.EventHandler(this.toolStripButton_Excel_Click);
             // 
             // button_exitManager
             // 
-            this.button_exitManager.Location = new System.Drawing.Point(29, 466);
+            this.button_exitManager.BackColor = System.Drawing.Color.SandyBrown;
+            this.button_exitManager.Location = new System.Drawing.Point(29, 464);
             this.button_exitManager.Name = "button_exitManager";
-            this.button_exitManager.Size = new System.Drawing.Size(173, 23);
+            this.button_exitManager.Size = new System.Drawing.Size(173, 25);
             this.button_exitManager.TabIndex = 23;
             this.button_exitManager.Text = "Выйти";
-            this.button_exitManager.UseVisualStyleBackColor = true;
+            this.button_exitManager.UseVisualStyleBackColor = false;
             this.button_exitManager.Click += new System.EventHandler(this.button_exitManager_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(744, 505);
             this.Controls.Add(this.button_exitManager);
             this.Controls.Add(this.groupBox4);
@@ -1261,7 +1300,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton11;
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.Button button_exitManager;
-        private System.Windows.Forms.ToolStripButton toolStripButton_Word;
         private System.Windows.Forms.ToolStripButton toolStripButton_Excel;
     }
 }
